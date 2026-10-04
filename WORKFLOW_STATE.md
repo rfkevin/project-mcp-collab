@@ -1,6 +1,6 @@
 # CC-1 state
 workflow_id: CC-1
-revision: 2
+revision: 3
 next_action: Vibe reviews state sync; Grok renews verification; Kevin decides C merge; Vibe/Antigravity run trial after C delivery
 base_revision: 1
 canonical_ref: main
