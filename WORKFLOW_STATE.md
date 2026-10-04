@@ -1,7 +1,7 @@
 # CC-1 state
 workflow_id: CC-1
 revision: 3
-next_action: ChatGPT reviews T60; Antigravity supplies V04-edit/V12 evidence; Grok reconciles map; Kevin decides final acceptance
+next_action: ChatGPT reviews T60; Vibe supplies V04-edit/V12 evidence; Grok reconciles map; Kevin decides final acceptance
 base_revision: 2
 canonical_ref: main
 based_on_sha: 1336c65083914176e69370b2635960cce703912c
@@ -22,6 +22,7 @@ P5 remains the recorded owner-authorized phase. Reports are delivered; T60 corre
 Kevin | 2026-10-04 | private chat, reported by Codex; no public attestation invented.
 - Review comments, update plan, start implementation; continue foundation and create a new execution issue including new collaborators.
 - Later correction: Claude temporarily unavailable; remove from active tasks. T50 deferred/unassigned; not a completion dependency.
+- Kevin, 2026-10-04, private chat reported by Codex: Antigravity unavailable; Vibe takes remaining V04-edit/V12 work. Preserve prior Antigravity evidence. ChatGPT independently reviews these new results because Vibe authored C.
 Scope: planned neutral bootstrap/task branches; no automatic main merge/deployment. No private ballots retained.
 
 ## Roles
@@ -30,9 +31,9 @@ Account for source comments: rfkevin-github-mcp[bot]. Names are declarations, no
 | --- | --- | --- |
 | Codex | foundation #4 and state #8 merged; C agreement [C-AGREE] | T60 state/findings proposal; independent review and closure |
 | ChatGPT | T01 acknowledgment [T01-ACK]; C retest; D design and trial consolidation [TRIAL] | review T60; reconcile V04/V12 verdicts; update scenario result pointer |
-| Vibe GLM | B/state review [B-REVIEW]; C merged #5; A/B trial delivered [TRIAL-AB] | verify corrected state semantics; knowledge wording follow-up |
+| Vibe GLM | B/state review [B-REVIEW]; C merged #5; A/B trial delivered [TRIAL-AB] | execute reassigned V04-edit/V12 checks; verify state semantics; knowledge follow-up |
 | Grok | A merged #6; B/D reviews; renewed state evidence [B-TEST] | final map/result-link reconciliation; independent revision-3 check |
-| Antigravity | A inspection; C trial delivered [TRIAL-C] | complete V04 edit exercise and measured V12 baseline; affected retests |
+| Antigravity | A inspection; C trial delivered [TRIAL-C] | unavailable; remaining V04-edit/V12 reassigned to Vibe by Kevin |
 | DeepSeek | T00 review, T01 reading and T30 input complete [DS] | no repeated assignment; targeted follow-up only if new evidence requires it |
 Claude: historical advice [C6]; no active role/acceptance row while deferred.
 
@@ -134,8 +135,8 @@ Source: [TRIAL]; supporting reports [TRIAL-AB]/[TRIAL-C]. No historical report o
 | F-T60-T30-REF | fix_now | Codex | Record merged a888c72 and distinguish prior review target |
 | F-T60-PAGINATION-REVISION | rejected_with_reason | Codex | At trial SHA, TOOL_TIPS:11 explicitly requires revision when offset>0; R1:24 already says follow nextOffset with revision. Optional wording polish only; no missing-contract defect established |
 | F-T60-V16-COVERAGE | follow_up | ChatGPT | b/c remain not_tested; document limits for owner acceptance, no fabricated checks |
-| F-T60-V04-EDIT | fix_now | Antigravity / ChatGPT | Report step 6 inspects contract only; supply same-ID changed-updatedAt exercise (safe fixture/simulation acceptable) and renewed scoped verdict |
-| F-T60-V12-MEASUREMENT | fix_now | Antigravity / ChatGPT | Baseline estimated, not executed; collect both paths at immutable SHA with argument/response bytes, context, elapsed time and completeness, or explicitly retain incomplete coverage |
+| F-T60-V04-EDIT | fix_now | Vibe / ChatGPT | Report step 6 inspects contract only; supply same-ID changed-updatedAt exercise (safe fixture/simulation acceptable) and renewed scoped verdict |
+| F-T60-V12-MEASUREMENT | fix_now | Vibe / ChatGPT | Baseline estimated, not executed; collect both paths at immutable SHA with argument/response bytes, context, elapsed time and completeness, or explicitly retain incomplete coverage |
 | F-T60-V09-CAUSE | fix_now | ChatGPT | Report step 6 infers retry-rule violation from duplicate posts; cause remains unproven. Append clarification; retain simulation-only evidence |
 | F-T60-NAVIGATION | fix_now | Grok / ChatGPT | code-map delivery/result rows and scenario status are stale; link actual reports and retain unresolved limits |
 
