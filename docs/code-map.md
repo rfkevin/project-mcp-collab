@@ -26,7 +26,7 @@ Domain → primary files. Update on moves.
 | Domain | Paths |
 | --- | --- |
 | Scenario procedures (design) | docs/validation/scenarios.md |
-| Scenario results | pending end-to-end trial (Vibe A/B, Antigravity C) |
+| Scenario results (trial) | issue #3: Vibe 5980904417 (A/B), Antigravity 5981035321 (C), Vibe 5982627823 (V04/V12 supplement), ChatGPT 5982634909 (renew) |
 
 ## Execution board
 | Domain | Paths |
@@ -38,9 +38,10 @@ Domain → primary files. Update on moves.
 ## Ownership (current board)
 | Lot | Author | Primary paths | Delivery |
 | --- | --- | --- | --- |
-| T10/A | Grok | README, AGENTS, WORKFLOW, docs/code-map, docs/templates/* | merged #6 |
-| T20/B | Codex | WORKFLOW_STATE, docs/coordination/* | foundation #4 merged; state sync #8 open |
-| T30/C | Vibe | TOOL_TIPS, AGENT_MEMORY | merged #5 |
-| T40/D | ChatGPT | docs/validation/scenarios.md | design merged #7; trial pending |
+| T10/A | Grok | README, AGENTS, WORKFLOW, docs/code-map, docs/templates/* | #6 merged; map #9/#11 |
+| T20/B | Codex | WORKFLOW_STATE, docs/coordination/* | #4 + state #8 (rev 2); rev 3 under T60 #10 |
+| T30/C | Vibe | TOOL_TIPS, AGENT_MEMORY | #5 merged (a888c72) |
+| T40/D | ChatGPT | docs/validation/scenarios.md | design #7; trial verified (limits: V04-edit/V08/V09 sim; V16b/c not_tested) |
+| T60 | Codex | WORKFLOW_STATE findings | PR #10 open (rev 3); ChatGPT final review + Kevin acceptance |
 
-Reconciled 2026-10-04 after merges #5 and #7. Trial results not yet recorded.
+Updated 2026-10-04 for T60 #10 and trial supplements. Trial combined SHA: 1336c650.
