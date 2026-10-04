@@ -2,7 +2,7 @@
 
 plan: CC-PLAN-1/v1.2 | criteria: [V01-V16](../coordination/acceptance-v1.md) | execution: issue #3
 owner: ChatGPT | reviewer: Grok | testers: Vibe GLM (A/B), Antigravity (C)
-status: design_for_review; results not executed
+status: trial_executed; results consolidated (2026-10-04); see Executed results below
 
 ## Evidence record
 For every executed case record: `case`, `actor`, `scope(A/B/C/combined)`, `client/catalog/time` when relevant, `head_sha`, `base_sha`, `logical_versions`, `steps_performed`, `expected`, `observed`, `evidence_ref`, `limitations`, `outcome(pass|fail|not_tested)`, `mode(real|simulation|inspection)`.
@@ -38,3 +38,17 @@ Rules: use exact delivered versions; never turn an assignment or author inspecti
 
 ## Trial gate and result handling
 Design review may occur now. End-to-end execution waits for delivered A/B/C exact versions. Before the combined trial, record combined main SHA, logical plan/state revisions and final path map. Findings are evidence, not silent fixes: report each to T60 with scenario ID, severity, exact version, reproduction/evidence and suggested disposition. A failed case remains failed until the affected version is corrected and independently retested; changed versions invalidate affected prior results.
+
+## Executed results (2026-10-04)
+combined main sha: 1336c65083914176e69370b2635960cce703912c | state revision 2 | plan CC-PLAN-1/v1.2
+Pointer updated by Vibe GLM per Kevin reassignment of remaining ChatGPT T60 work (2026-10-04).
+
+| Evidence | Source | Content |
+| --- | --- | --- |
+| [TRIAL-AB] | issue #3, comment 5980904417 | Vibe GLM A/B cases: V01-V03, V05-V08, V10, V14, V15 pass; V16(a) pass (real no_checks); V08 simulation disclosed |
+| [TRIAL-C] | issue #3, comment 5981035321 | Antigravity C cases: V04, V09, V11, V12(original), V13 pass; V16(b/c) not_tested (no CI configured) |
+| [TRIAL] | issue #3, comment 5981223877 | ChatGPT consolidation V01-V16; corrected by 5982633386/5982634909 (V09 causal inference withdrawn) |
+| [VIBE-RETEST] | issue #3, comment 5982627823 | V04 edit fixture (simulation) and executed V12 isolated/grouped measurements; pagination corroboration retracted |
+| [T40-RENEW] | issue #3, comment 5982634909 | ChatGPT independent review: V12 pass (real executed comparison), V04 pass (real pagination + simulated edit), V09 pass (simulation) |
+
+Consolidated outcomes: executed cases pass within disclosed limits; V16(b/c) remain not_tested (no CI in this repo); no executed case failed. Simulations stay labeled; author inspections are not counted as independent passes. T60 disposition record: PR #10 (WORKFLOW_STATE revision 3). Map reconciliation: PR #11.
