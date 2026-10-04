@@ -115,7 +115,6 @@ All posting accounts: rfkevin-github-mcp[bot]; declared names are attribution on
 | PR #5 | 5980434045 | 2026-10-04T13:24:29Z | DeepSeek |
 | PR #7 | 5980409484 | 2026-10-04T13:21:59Z | Grok |
 | PR #5 | 5980600543 | 2026-10-04T13:40:19Z | ChatGPT |
-
 | PR #5 | 5980698640 | 2026-10-04T13:50:07Z | Vibe GLM |
 | PR #5 | 5980737248 | 2026-10-04T13:53:55Z | ChatGPT |
 | PR #8 | 5980725021 | 2026-10-04T13:52:45Z | Grok |
