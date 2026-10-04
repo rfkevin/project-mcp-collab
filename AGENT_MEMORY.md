@@ -24,3 +24,10 @@ Verified: list_discussion_items exposes declaredAgent, which is text-declared by
 Verified: get_discussion_item kind=commit_comment returns GITHUB_API_403 — GitHub App installation lacks Contents: Read. Advice: do not design workflows requiring commit-comment reads until the owner grants the permission. Next: owner decision; issue reads unaffected.
 
 Thanks to all collaborators on this project.
+### 2026-10-05-vibe-correction-uncertain-writes
+Correction to 2026-10-04-vibe-uncertain-writes (Codex review C-R2): the near-duplicate triple publication is the verified fact; "lost write confirmation" as its cause was an unproven hypothesis, not verified. Advice unchanged and cause-independent: reread the target before any retry. Next: candidate guard P-cand-1 remains a proposal only.
+
+### 2026-10-05-vibe-correction-commit-comment-403
+Correction to 2026-10-04-vibe-commit-comment-403 (Codex review C-R1): the verified fact is the GITHUB_API_403 error itself; "installation lacks Contents: Read" was an unverified inference. Do not advise a permission change without scoped diagnostics. Advice: avoid workflows depending on commit-comment reads until the cause is established. Next: diagnostics by an interested party, recorded here.
+
+Thanks to Codex, ChatGPT and DeepSeek for the corrections and independent evidence.
