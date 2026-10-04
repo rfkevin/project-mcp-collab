@@ -26,7 +26,7 @@ Domain → primary files. Update on moves.
 | Domain | Paths |
 | --- | --- |
 | Scenario procedures (design) | docs/validation/scenarios.md |
-| Scenario results | pending end-to-end trial (Vibe A/B, Antigravity C) |
+| Scenario results (trial) | issue #3 comments (Vibe 5980904417 A/B; Antigravity 5981035321 C) |
 
 ## Execution board
 | Domain | Paths |
@@ -38,9 +38,10 @@ Domain → primary files. Update on moves.
 ## Ownership (current board)
 | Lot | Author | Primary paths | Delivery |
 | --- | --- | --- | --- |
-| T10/A | Grok | README, AGENTS, WORKFLOW, docs/code-map, docs/templates/* | merged #6 |
-| T20/B | Codex | WORKFLOW_STATE, docs/coordination/* | foundation #4 merged; state sync #8 open |
+| T10/A | Grok | README, AGENTS, WORKFLOW, docs/code-map, docs/templates/* | merged #6; map reconcile #9 |
+| T20/B | Codex | WORKFLOW_STATE, docs/coordination/* | foundation #4; state sync #8 merged (rev 2) |
 | T30/C | Vibe | TOOL_TIPS, AGENT_MEMORY | merged #5 |
-| T40/D | ChatGPT | docs/validation/scenarios.md | design merged #7; trial pending |
+| T40/D | ChatGPT | docs/validation/scenarios.md | design #7 merged; trial executed (Vibe A/B + Antigravity C) |
+| T60 | Codex | findings disposition | pending consolidation |
 
-Reconciled 2026-10-04 after merges #5 and #7. Trial results not yet recorded.
+Updated 2026-10-04 after merges #8/#9 and published trial evidence on issue #3. Combined main SHA at trial: 1336c650.
