@@ -139,7 +139,7 @@ Source: [TRIAL]; supporting reports [TRIAL-AB]/[TRIAL-C]. No historical report o
 | F-T60-V04-EDIT | fix_now; resolved_with_evidence | Vibe / ChatGPT | [VIBE-RETEST] fixture simulation, independently accepted [T40-RENEW]; real edit not claimed |
 | F-T60-V12-MEASUREMENT | fix_now; resolved_with_evidence | Vibe / ChatGPT | [VIBE-RETEST]/[T40-RENEW]: executed 4 vs 1 calls, 480 vs 222 argument bytes, 7291 vs 2959 ms; 27626 content bytes each; single run, tokens not_measured |
 | F-T60-V09-CAUSE | fix_now; resolved_with_evidence | ChatGPT | [T40-RENEW] explicitly withdraws causal inference; V09 pass remains simulation only |
-| F-T60-NAVIGATION | fix_now | Grok / ChatGPT | Map PR #11 delivered, review/merge pending; docs/validation/scenarios.md status/result pointer still needs owner update |
+| F-T60-NAVIGATION | resolved_with_evidence | Grok / Vibe | Map PR #11 and scenario status/result pointers PR #12 merged on main f55ab46; docs/code-map.md and docs/validation/scenarios.md verified. Final consolidation review and Kevin acceptance remain separate closure gates |
 
 Closure gate: independent T60 review + affected evidence corrections/retests + final link/state check + explicit Kevin acceptance. No new runtime or phase transition inferred.
 
