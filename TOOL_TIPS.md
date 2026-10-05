@@ -29,7 +29,7 @@ Known limits observed:
 
 ## 2. Read recipes (bounded, evidence-safe)
 
-R1 Long comment: list_discussion_items (sizes) → get_issue_comment offset 0 → follow nextOffset with revision. Loop until nextOffset=null. limit defaults to 4000 (max 12000, read in github-mcp issues.ts): a body ≤12000 B (maskedBytes from the index) fits ONE call with limit=12000; 8071 B took 3 calls at the default (V04 trial).
+R1 Long comment: list_discussion_items (sizes) → get_issue_comment offset 0 → follow nextOffset with revision. Loop until nextOffset=null. limit accepts up to 12000, but observed server pages cap at 4000 masked bytes regardless of the requested limit (observed: 10,426 B body requested with limit=12000 still paged at offsets 0/4000/8000; 8071 B → 3 calls, V04 trial). Plan ~1 call per 4000 B; never assume ONE call from maskedBytes ≤ 12000.
 R2 Bulk discussion review: index FIRST (list_discussion_items maskedBytes) when available; paginated get_issue excerpts only as fallback. Full reads (R1) for items >1900 bytes. This session: 13 comments, 11 needed full reads.
 R3 Multi-file state/plan read: read_files batch at one SHA (4 files/1 call, zero truncation). Prefer over per-file reads.
 R4 Before any write: read_files at current head to get blob SHAs (expectedSha preconditions) — one call for all targets.
