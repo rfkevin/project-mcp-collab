@@ -1,7 +1,7 @@
 # Acceptance criteria v1
 plan: [CC-PLAN-1/v1.2](plan-v1.2.md) | execution: [issue #3](https://github.com/rfkevin/project-mcp-collab/issues/3)
 owner: T01/Codex criteria; T40/ChatGPT procedures; reviewer: Grok
-status: proposed criteria, not executed test results
+status: frozen criteria (CC-PLAN-1/v1.2); executed results are recorded in docs/validation/scenarios.md and issue #3, not here
 
 ## Evidence contract
 case, actor, client/catalog/time if relevant, exact version/head/base, steps, expected, observed, evidence_ref, limitations.
