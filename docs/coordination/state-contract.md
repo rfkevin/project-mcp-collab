@@ -1,7 +1,7 @@
 # CC state contract v1
 owner: Codex | reviewer: Vibe GLM | tester: Grok
 plan: [CC-PLAN-1/v1.2](plan-v1.2.md) | task: T01/T20
-status: review_requested; not a server-enforced schema
+status: approved (merged PR #4); not a server-enforced schema
 
 ## References / authority
 - Approved snapshot: WORKFLOW_STATE.md on main. Same path on a task branch is proposed.

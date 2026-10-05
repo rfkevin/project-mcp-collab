@@ -2,7 +2,7 @@
 
 task: T30/C | author: Vibe GLM | reviewers: Codex (review), ChatGPT + DeepSeek (tests)
 plan: [CC-PLAN-1/v1.2](docs/coordination/plan-v1.2.md) | state: [WORKFLOW_STATE.md](WORKFLOW_STATE.md)
-status: proposed (branch) | All observations are client-specific and time-stamped; refresh before relying on them.
+status: merged (PR #5, a888c72); amendments proposed in the consolidation PR | All observations are client-specific and time-stamped; refresh before relying on them.
 
 ## 1. Observed client catalog (Vibe GLM client, 2026-10-04, github-mcp worker via MCP connector)
 
@@ -19,13 +19,22 @@ Known limits observed:
 - Cross-client catalog differences are REAL: Codex reported github_get_issue_comment absent in his catalog on 2026-10-04. Hypothesis (unproven): reconnect refreshes tool list. Each agent MUST record own catalog+time before Phase-critical reads. Never assume another client has your tools.
 - Paginated views truncate ~1.9 KB/comment: DO NOT base cross-review verdicts on github_get_issue comment bodies alone. Check maskedBytes in the index first; >1.9 KB ⇒ read via github_get_issue_comment.
 
+## 1b. Observed client catalog (Claude client, same github-mcp worker; added by the consolidation PR, lot-C owner may amend)
+
+- Catalog is per conversation: github_get_issue, github_get_issue_comment, github_list_issues, github_list_discussion_items, github_get_discussion_item, github_get_discussion_delta, github_comment_issue and github_create_issue appeared via tool_search after the conversation had started (cause unknown: refresh or deployment).
+- Bounds seen: issue body returned 12,000 B of 23,396 B (bodyTruncated=true); get_issue comment excerpts 2,000 B. Lossless paths exist for comments, reviews, inline comments and commit comments, not for bodies (P-cand-2).
+- Counts: a public GitHub page snapshot held 12-14 of 20 comments on issue #3 while github_list_discussion_items listed 20. Count items with the index, never from a web page.
+- Approval prompts: 5 calls (3 reads, 2 writes) returned `No approval received`. A refused write is unconfirmed until read back (W4); one comment was retried after the owner's instruction and no duplicate was seen afterward.
+- Sandbox: can clone public repos and run their test suites; no push credentials, so writes go through the MCP only.
+
 ## 2. Read recipes (bounded, evidence-safe)
 
-R1 Long comment: list_discussion_items (sizes) → get_issue_comment offset 0 → follow nextOffset with revision. Loop until nextOffset=null. Cost: ~2-3 calls per long body.
+R1 Long comment: list_discussion_items (sizes) → get_issue_comment offset 0 → follow nextOffset with revision. Loop until nextOffset=null. limit defaults to 4000 (max 12000, read in github-mcp issues.ts): a body ≤12000 B (maskedBytes from the index) fits ONE call with limit=12000; 8071 B took 3 calls at the default (V04 trial).
 R2 Bulk discussion review: index FIRST (list_discussion_items maskedBytes) when available; paginated get_issue excerpts only as fallback. Full reads (R1) for items >1900 bytes. This session: 13 comments, 11 needed full reads.
 R3 Multi-file state/plan read: read_files batch at one SHA (4 files/1 call, zero truncation). Prefer over per-file reads.
 R4 Before any write: read_files at current head to get blob SHAs (expectedSha preconditions) — one call for all targets.
 R5 CI: ci_status at exact SHA with expectedChecks declared; get_failure_report for annotations (gives file/line/error, no raw logs).
+R6 Follow a discussion without rereading it: github_get_discussion_delta (kind issue_comment|pull_request_comment + number). No cursor ⇒ baseline: newest `limit` entries (no bodies) + nextCursor that acknowledges everything. With cursor ⇒ added/modified/deleted ids; reuse nextCursor each call; hasMore=true ⇒ call again. Read changed items with get_issue_comment. Limits: newest 300 items tracked; ≥1000 comments ⇒ DISCUSSION_TOO_LARGE_FOR_DELTA; an edit invisible after secret masking is not reported; INVALID/FOREIGN/STALE cursor ⇒ restart without cursor. Contract: https://github.com/rfkevin/github-mcp/blob/master/docs/discussion-delta.md (other repository). DISCLOSURE: authored by Claude. Independent evidence so far: DeepSeek's baseline on issue #3 matched the index (comment 5980474094); the added/modified/deleted modes have NO independent run yet.
 
 ## 3. Write recipes and uncertainty rules
 
