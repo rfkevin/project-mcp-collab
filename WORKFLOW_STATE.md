@@ -77,3 +77,4 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | project-mcp-collab #19 6013711013 | Vibe test pass at 2f40883 (previous head) |
 
 <!-- CC2 F2 controlled reread probe: 2026-10-06; test branch only; no authority/state semantic change. -->
+<!-- CC2 F2 controlled mutation after checkpoint A; reread detection probe only. -->
