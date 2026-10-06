@@ -4,7 +4,7 @@
 
 ## Parse
 
-- Proposed `WORKFLOW_STATE.md`: `CC-STATE-1`, not legacy, 17 tasks, 8 roles, 7 171 B; no parser error.
+- Proposed `WORKFLOW_STATE.md`: `CC-STATE-1`, not legacy, 18 tasks, 8 roles, 8 168 B (revision updated after the G5-F6 tests, #16 6013591994); no parser error.
 - CC-1 rev 4 (`6507359c:WORKFLOW_STATE.md`) still parses as `legacy-v1`, `workflow_id: CC-1`; `docs/coordination/history/cc1-state-rev4.md` points to that immutable blob.
 
 ## Join matrix (`buildCollabContext`, participant only, no task id)
@@ -17,7 +17,7 @@
 | Claude | CC-2 / P6 / r2 | G5-F1 `review` | review then test at exact head |
 | Codex, Grok, Muse Spark, Cline, unknown | CC-2 / P6 / r2 | none | global `next_action` |
 
-Each named participant resolves to **at most one** actionable task, so the short prompt « Reprends ton lot » works with `participant` alone (no `AMBIGUOUS_TASK`). A call with neither participant nor task id returns `AMBIGUOUS_TASK` listing G5-F1, G6, T-L3, T-L4, G5-F3: the expected targeted clarification.
+Each named participant resolves to **at most one** actionable task, so the short prompt « Reprends ton lot » works with `participant` alone (no `AMBIGUOUS_TASK`). A call with neither participant nor task id returns `AMBIGUOUS_TASK` listing G5-F1, G6, G5-F3: the expected targeted clarification.
 
 Before this successor, the same calls on main returned `CC-1 / P5 / r4`, `legacy-v1`, no task (see `2026-10-06-g5-local-replay.md`).
 
@@ -26,8 +26,12 @@ Before this successor, the same calls on main returned `CC-1 / P5 / r4`, `legacy
 - Guidance for an author in P6: `read_changed_paths`, `review_and_test_independently`, `request_or_apply_correction`, `report_lessons`; `ownerDecisionRequired=true`.
 - Staleness: a client that has already seen revision 3 gets `stale=true` with « A newer owner revision exists ».
 - Sources are plain URLs and paths (no Markdown link text), so `unread` lists locations a client can open; this avoids G5-F3 at data level without changing code.
-- Task lookups by id: `T-L3` `proposed` (blocker: owner assignment), `L4` `blocked` (G5-F6), `PROMOTE` `blocked` (owner decision).
+- Task lookups by id: `T-L3` `done`, `L4` `done`, `PROMOTE` `blocked` (owner decision).
 - Checkpoint for Claude: 484 B.
+
+## D12 made checkable
+
+The Tasks table carries optional `reviewer` and `tester` columns. The L1 parser accepts extra columns (it only requires `id, status, owner, version, ref, next_action`), so nothing changes for existing readers. A 10-line check (tester must differ from the owner and from every reviewer) run on this file reports exactly `["L1", "L3"]`, the two debts recorded by hand in G5-F6 and by Grok in #16 6013591994. Proposal for a later cycle: reuse L1 `assertDistinctParticipants` on these columns in a state lint so the debt is caught before a merge, not after.
 
 ## Limits
 
