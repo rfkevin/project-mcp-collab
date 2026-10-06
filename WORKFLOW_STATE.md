@@ -75,3 +75,5 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | project-mcp-collab #18 | Sol agree 6012998068, Grok pass 6013290108 at 2c0e66b |
 | #16 6013591994 | Grok G5-F6 tests of L3 and L4 (pass_with_limits), L1 D12 debt confirmed |
 | project-mcp-collab #19 6013711013 | Vibe test pass at 2f40883 (previous head) |
+
+<!-- CC2 F2 controlled reread probe: 2026-10-06; test branch only; no authority/state semantic change. -->
