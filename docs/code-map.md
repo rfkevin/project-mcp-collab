@@ -8,8 +8,9 @@ Domain → primary files. Update on moves.
 | Entry | README.md |
 | Mandatory agent protocol | AGENTS.md |
 | Phase/role rules | WORKFLOW.md |
-| Approved shared state | WORKFLOW_STATE.md |
-| State field contract | docs/coordination/state-contract.md |
+| Approved shared state | WORKFLOW_STATE.md (CC-2, CC-STATE-1 contract: github-mcp docs/collaboration/contract.md) |
+| CC-1 final snapshot (rev 4, read-only history) | docs/coordination/history/cc1-state-rev4.md |
+| State field contract (CC-1) | docs/coordination/state-contract.md |
 | Frozen plan baseline | docs/coordination/plan-v1.2.md |
 | Acceptance criteria V01–V16 | docs/coordination/acceptance-v1.md |
 | Contribution template | docs/templates/contribution.md |

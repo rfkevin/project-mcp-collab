@@ -1,179 +1,77 @@
-# CC-1 state
-workflow_id: CC-1
-revision: 4
-next_action: Kevin decides final acceptance; owners acknowledge or object to the consolidation PR; independent test of github_get_discussion_delta added/modified/deleted modes pending; V16(b/c) stay not_tested
-base_revision: 3
+# CC-2 state
+schema_version: CC-STATE-1
+workflow_id: CC-2
+revision: 2
+base_revision: 1
+next_action: Kevin decides G6 - (1) merge this state successor, (2) preview deployment of github-mcp cc2-integration@0a2063a7 for a real two-client rerun of CC2-01/03/05/07/10, (3) waive or re-test the D12 role-separation debt of L1 and L3, (4) open or defer the memory vote, (5) promotion to master
 canonical_ref: main
-based_on_sha: f55ab46be95383c7397adafb10c71f2b77a51bb6
-phase: P5
-framing_version: CC-FRAME-1
-framing_ref: https://github.com/rfkevin/project-mcp-collab/issues/1
-plan_version: CC-PLAN-1/v1.2
-plan_ref: [complete plan](docs/coordination/plan-v1.2.md)
-execution_ref: https://github.com/rfkevin/project-mcp-collab/issues/3
-contract_ref: [fields/update semantics](docs/coordination/state-contract.md)
-acceptance_ref: [V01-V16](docs/coordination/acceptance-v1.md)
+based_on_sha: 6507359c633f86105059f58f2f19aceb6cb79b98
+phase: P6
+framing_version: CC-FRAME-2
+framing_ref: https://github.com/rfkevin/project-mcp-collab/issues/13
+plan_version: CC-PLAN-2/v1.0
+plan_ref: https://github.com/rfkevin/project-mcp-collab/issues/16
+execution_ref: https://github.com/rfkevin/github-mcp/tree/mcp/105856986/cc2-integration
+contract_ref: https://github.com/rfkevin/github-mcp/blob/0a2063a76b554bdcdd4fd4ba28bad0308fc6749d/docs/collaboration/contract.md
+acceptance_ref: docs/coordination/cc2/acceptance-results.md
 
-Placement defines authority: task branch = proposal; main = approved snapshot.
-Authority follows placement: this revision is proposed on a task branch and approved when merged to main. based_on_sha identifies preparation evidence only.
-P5 remains the recorded owner-authorized phase. Reports are delivered and T60 revision 3 is merged; the consolidation review and owner closure remain pending.
+Placement defines authority: this file on a task branch is a proposal; it becomes the approved snapshot only when Kevin merges it to main.
+Format: CC-STATE-1, parsed by github-mcp src/collab/state.ts (L1). Reference values are plain URLs or paths so that the context tool lists readable sources.
+Revision 1 is the P5 opening decided by Kevin on 2026-10-05 and announced in #16 (5994794062); it was never transcribed here. Revision 2 transcribes the cycle as of P6.
+History: the CC-1 snapshot (revision 4, P5) stays immutable at main 6507359c; docs/coordination/history/cc1-state-rev4.md points to it. CC-1 is not closed by this file; its owner closure stays pending.
 
 ## Owner decisions
-Kevin | 2026-10-04 | private chat, reported by Codex; no public attestation invented.
-- Review comments, update plan, start implementation; continue foundation and create a new execution issue including new collaborators.
-- Later correction: Claude temporarily unavailable; remove from active tasks. T50 deferred/unassigned; not a completion dependency.
-- Kevin, 2026-10-04, private chat reported by Codex: Antigravity unavailable; Vibe takes remaining V04-edit/V12 work. Preserve prior Antigravity evidence. ChatGPT independently reviews these new results because Vibe authored C.
-- Kevin, after merges #10-#12, direct instruction in Claude's chat, reported by Claude; no public attestation: Claude prepares one consolidation PR (stale statuses and map after the merges). T50 stays deferred.
-Scope: planned neutral bootstrap/task branches; no automatic main merge/deployment. No private ballots retained.
+Names are declared labels, not authenticated identities. Each line states how the decision reached the record; none is attested by Kevin in public unless linked.
+- Kevin, 2026-10-05, coordinator chat, reported by Codex in #16 (5994794062): P5 opened; staging github-mcp branch mcp/105856986/cc2-integration from master cd8089ae; no promotion to master before the final packet and Kevin's decision.
+- Kevin, 2026-10-05/06, reported by the substitutes in #16: Codex unavailable; Sol reviews L2 and Vibe reviews L4 in Codex's slot; Grok tests L1, L2 and L6 in place of Muse Spark; Cline unavailable then authors L7 on portalshall.
+- Kevin, 2026-10-06, direct instruction in Claude's chat, no public attestation: Claude authors L3 and L6, closes L7/G5 (PR #18) and prepares this state successor for G5-F1.
+- Kevin, 2026-10-06, reported by Sol in #16 (6013325692): GPT-5.6 Sol is substitute coordinator for the rest of P6/G5 to G6. Owner authority is not transferred.
+- Kevin, 2026-10-06, direct instruction in Claude's chat: the cycle is in P6.
+- GPT-5.6 Sol as coordinator, 2026-10-06, reported by Grok in #16 (6013591994): Grok supplies the missing independent tests of L3 and L4 (G5-F6). Not an owner decision.
+Kevin alone decides waivers, gate acceptance, merges to main or master, promotion and deployment.
 
 ## Roles
-Account for source comments: rfkevin-github-mcp[bot]. Names are declarations, not authenticated model identities.
 | Actor | Scoped acceptance/assignment | Pending evidence |
 | --- | --- | --- |
-| Codex | foundation #4, state #8 and T60 state #10 merged; C agreement [C-AGREE] | owner closure; review of the consolidation PR |
-| ChatGPT | T01 acknowledgment [T01-ACK]; C retest; D design and trial consolidation [TRIAL] | corrected T40 consolidation accepted [T40-RENEW]; final T60 review executed by Vibe per Kevin's reassignment [T60-FINAL]; scenario pointer merged #12 |
-| Vibe GLM | B/state review [B-REVIEW]; C merged #5; A/B trial delivered [TRIAL-AB] | reassigned V04/V12 delivered [VIBE-RETEST]; final T60 review at head 5d773db [T60-FINAL] |
-| Grok | A merged #6; B/D reviews; renewed state evidence [B-TEST] | map reconciliation merged #11; independent revision-3 check [GROK-REV3] |
-| Antigravity | A inspection; C trial delivered [TRIAL-C] | unavailable; remaining V04-edit/V12 reassigned to Vibe by Kevin |
-| DeepSeek | T00 review, T01 reading and T30 input complete [DS] | no repeated assignment; targeted follow-up only if new evidence requires it |
-Claude: historical advice [C6]; consolidation PR only (owner instruction above, no vote); T50 deferred.
+| Kevin | owner | G6 decisions listed in next_action |
+| GPT-5.6 Sol | substitute coordinator (P6); L4 author; reviewer L2, L5, L6, L7, G5 | G6 decision path |
+| Codex | assembler and L1 author; unavailable since 2026-10-05 | none while unavailable |
+| Vibe GLM | L2 author; L1 corrector; reviewer L3, L4; tester L5 | G5-F3 link-target fix proposal |
+| Grok | L5 author; reviewer L3; tester L1, L2, L3, L4, L6, L7, G5 | none recorded |
+| Muse Spark | L0 author; L7 coordinator; unavailable since L6 | none while unavailable |
+| Cline | L0 tester; L7 author (portalshall #3) | none (the L4 test was supplied by Grok) |
+| Claude | L3 and L6 author; L7/G5 closure; this state successor | Sol review of this state PR; Vibe test to renew at the new head |
 
 ## Tasks
-| id | status | owner | version | ref | next_action |
-| --- | --- | --- | --- | --- | --- |
-| T00 | done | Codex | bootstrap 1de1577 | [DS]/[TEST-B] | none; neutral bootstrap inspection complete |
-| T01 | done | Codex | plan v1.2 | [T01-ACK]/[TEST-B]/[DS] | none; scoped review/test evidence received |
-| T10 | done | Grok | a4db778 | PR #6 merged | map reconciled (#9, #11); A document review/testing complete |
-| T20 | done | Codex | approved state 2; contract v1 | PR #8/[B-REVIEW]/[B-TEST] | revision 3 merged (#10) |
-| T30 | done | Vibe GLM | a888c72f59e015aa0c23952701e2215bfe61be67 | PR #5 merged | delivery complete; documentary review at bf4afa4, final append clarifies dates; trial limits separate |
-| T40 | verified | ChatGPT | trial 1336c650; state 2 | [TRIAL]/[VIBE-RETEST]/[T40-RENEW] | accepted scoped evidence; V04 edit/V08/V09 simulated; V16(b/c) not_tested; scenario pointer merged (#12) |
-| T60 | review | Codex | state 3 approved (#10) | [TRIAL]/[T60-FINAL] | dispositions below merged; map #11 and scenario pointer #12 merged; owner closure and consolidation review remain |
-T50: deferred/unassigned by Kevin; reactivation only on owner instruction, not a current gate.
-No task is done merely because its role was accepted.
+| id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| L0 | done | Muse Spark | author | GPT-5.6 Sol | Cline | docs/coordination/cc2/baseline.md | none | none | 1ded98d | project-mcp-collab#17 | none |
+| L1 | done | Codex | author | Vibe GLM; re-verification Grok | Grok | src/collab/contracts.ts, src/collab/state.ts, src/collab/phase.ts | L0 | none | 5202b01 | github-mcp#36 | D12 debt: re-verifier and tester are the same agent (task D12) |
+| L2 | done | Vibe GLM | author | GPT-5.6 Sol | Grok | src/collab/context.ts, src/collab/reading-checkpoint.ts | L1 | none | 669fc6c | github-mcp#37 | none |
+| L3 | done | Claude | author | Grok; Vibe GLM | Grok | src/collab/bootstrap.ts, src/collab/bootstrap-manifest.ts | L1, L2 | none | 0355d96 | github-mcp#42 | D12 debt: the tester also reviewed L3 (task D12); test pass_with_limits 6013591994 |
+| L4 | done | GPT-5.6 Sol | author | Vibe GLM | Grok | src/collab/receipts.ts, src/collab/reconcile.ts, src/collab/publication.ts | L1 | none | 6f14eb0 | github-mcp#38 | none; test pass_with_limits 6013591994 |
+| L5 | done | Grok | author | GPT-5.6 Sol | Vibe GLM | src/collab/memory/ | L1 | none | d50062e | github-mcp#40 | none |
+| L6 | done | Claude | author | GPT-5.6 Sol | Grok | docs/collaboration/usage.md, docs/collaboration/troubleshooting.md, docs/collaboration/profile-decision.md | L1-L5 | none | 284074d | github-mcp#43 | none |
+| L7 | done | Cline | author | GPT-5.6 Sol | Grok | portalshall docs/coordination/cc2-l7/ | L2-L6 | none | fef60d9 | portalshall#3 | none |
+| G5 | verified | Claude | author | GPT-5.6 Sol | Grok | docs/coordination/cc2/acceptance-results.md, docs/coordination/cc2/evidence/ | L7 | none | 2c0e66b | project-mcp-collab#18 | Kevin merges or not; gate stays not passed operationally |
+| G5-F1 | review | Claude | author | GPT-5.6 Sol (pending) | Vibe GLM (pass at 2f40883; renew) | WORKFLOW_STATE.md, docs/coordination/history/ | G5 | none | this PR | branch mcp/105856986/claude-cc2-state | Sol review and Vibe re-test at exact head; merge = Kevin, after #18 |
+| G6 | in_progress | GPT-5.6 Sol | assembler | none | none | none | G5 | none | 6013325692 | project-mcp-collab#16 | prepare the G6 decision path from G5-F1, G5-F2 and D12 |
+| T-L3 | done | Grok | tester | none | none | none | L3 | none | 0a2063a | #16 6013591994 | pass_with_limits; see D12 |
+| T-L4 | done | Grok | tester | none | none | none | L4 | none | 0a2063a | #16 6013591994 | pass_with_limits |
+| D12 | blocked | Kevin | owner | none | none | none | L1, L3 | owner decision | 0a2063a | acceptance-results.md G5-F6 | waive, or assign a distinct tester: L1 (eligible GPT-5.6 Sol, Claude, Cline, Muse Spark), L3 (eligible GPT-5.6 Sol, Muse Spark, Cline, Codex) |
+| G5-F2 | blocked | Kevin | owner | none | none | none | G5 | owner decision | 0a2063a | github-mcp cc2-integration | preview deployment, then real rerun of CC2-01/03/05/07/10 with two clients |
+| G5-F3 | proposed | Vibe GLM | author | none | none | src/collab/context.ts | L2 | none | 0a2063a | acceptance-results.md G5-F3 | extract Markdown link targets as source locations; add a fixture |
+| MEM | blocked | Kevin | owner | none | none | none | G5 | owner decision | CC2-M01..M08 | acceptance-results.md CC2-17 | open the L5 electorate or defer |
+| PROMOTE | blocked | Kevin | owner | none | none | none | G5-F1, G5-F2, D12 | owner decision | 0a2063a | github-mcp master cd8089a | promotion to master and production stay Kevin's |
+A task is not done because a role was accepted. done = merged with recorded review and test; verified = review and test recorded, not merged. D12 holds when the tester is neither the owner nor a reviewer of the task; L1 and L3 do not meet it (task D12).
 
-## Open follow-ups
-Full reasoning in source comments; these rows record proposed handling, not fabricated acknowledgments.
-| id | severity | status | owner | version | ref | next_action |
-| --- | --- | --- | --- | --- | --- | --- |
-| V-O1 | non_blocking | resolved_with_evidence | Codex | trial 1336c650 | [TRIAL-AB]/[TRIAL-C] | split A/B versus C executed |
-| V-O2 | non_blocking | resolved_with_evidence | Antigravity | trial 1336c650 | [TRIAL-C] | assigned report delivered; completeness tracked below |
-| V-O3 | non_blocking | resolved_with_evidence | Vibe GLM | criteria v1 | PR #4, 5980000839 | matrix acknowledged |
-| V-O4 | non_blocking | resolved_with_evidence | ChatGPT | trial 1336c650 | [TRIAL-AB]/[TRIAL] | V03 attribution distinction checked |
-| G-AB | non_blocking | resolved_with_evidence | Grok/Vibe | contract v1 | PR #4, 5980000839/5980036422 | foundation acknowledgments received |
-| C-CLARIFICATIONS | non_blocking | resolved_with_evidence | ChatGPT | plan v1.2 | [T01-ACK] | five clarifications acknowledged |
-| LATE-INPUT | non_blocking | open | reviewers | plan v1.2 | [C4]/[C5]/[C6] | verify adopted criteria without relying on absent consultant |
-
-## Reading checkpoints
-Reader=Codex; complete=true refers only to this reader, not the source author's reading.
-source=project-mcp-collab#2; account=rfkevin-github-mcp[bot]
-| id | observed_updated_at | declared_label | complete | ref |
-| --- | --- | --- | --- | --- |
-| 5978166379 | 2026-10-04T08:36:46Z | ChatGPT | true | [C1] |
-| 5978168266 | 2026-10-04T08:37:03Z | Vibe GLM | true | [C2] |
-| 5978171221 | 2026-10-04T08:37:30Z | Grok | true | [C3] |
-| 5978547185 | 2026-10-04T09:32:23Z | Antigravity | true | [C4] |
-| 5979057958 | 2026-10-04T10:32:52Z | DeepSeek | true | [C5] |
-| 5979384064 | 2026-10-04T11:18:24Z | Claude | true | [C6] |
-Full bodies read through disclosed API fallback; source edits require relevant reread.
-
-## Evidence / limits
-- Bootstrap: neutral README only; [base]. Missing AGENTS/memory/setup docs confirmed at base.
-- Exact-base MCP CI: no checks/runs/statuses, not success or running CI.
-- Foundation #4, A #6, C #5, scenario design #7 and state #8 merged; T60 state #10, map #11 and scenario results #12 merged later. Combined trial reports target 1336c650 (approved state 2).
-- C-R1/C-R2 from [R-C] resolved by [C-FIX], checked in [C-AGREE]/[C-RETEST]. Historical causes remain unproven. C files remain Vibe-owned.
-- ChatGPT corrected C retest [C-RETEST] and Codex primary agreement [C-AGREE] cover document semantics; no end-to-end pass inferred.
-- Revision 3 merged at head 5d773db after Grok agree [GROK-REV3] and Vibe agree [T60-FINAL] at that head; Vibe's earlier agree at 5771fd5 [STATE3-REVIEW] is historical. No ChatGPT review of that head is recorded: Kevin reassigned it to Vibe, who authored lot C and disclosed it.
-- No other agent's implementation, review, test or active client inferred from a role offer.
-- No server enforcement/runtime change/deployment; model token savings not measured.
-- AGENT_MEMORY.md is delivered on main and remains C-owned; Codex contributes durable lessons through the central append-only record.
-- Full trial reports and consolidation read via disclosed GitHub API fallback; V08/V09 simulations, V02 declarative limits and V16(b/c) not_tested preserved. T60 does not promote partial evidence to a complete pass.
-
-[P]: docs/coordination/plan-v1.2.md
-[S]: docs/coordination/state-contract.md
-[V]: docs/coordination/acceptance-v1.md
-[base]: https://github.com/rfkevin/project-mcp-collab/commit/1de1577b8d8a16bdeaccf26a5dc46b9118f555bf
-[C1]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5978166379
-[C2]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5978168266
-[C3]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5978171221
-[C4]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5978547185
-[C5]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5979057958
-[C6]: https://github.com/rfkevin/project-mcp-collab/issues/2#issuecomment-5979384064
-
-[R-C]: https://github.com/rfkevin/project-mcp-collab/pull/5#issuecomment-5980630697
-[TEST-C]: https://github.com/rfkevin/project-mcp-collab/pull/5#issuecomment-5980600543
-[TEST-B]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5980409899
-[DS]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5980474094
-
-## Delta reading checkpoints (Codex, full bodies)
-All posting accounts: rfkevin-github-mcp[bot]; declared names are attribution only.
-| Source | Comment ID | updatedAt UTC | Declared label |
-| --- | --- | --- | --- |
-| PR #4 | 5980000839 | 2026-10-04T12:38:12Z | Vibe GLM |
-| PR #4 | 5980036422 | 2026-10-04T12:42:17Z | Grok |
-| PR #6 | 5980293932 | 2026-10-04T13:10:01Z | ChatGPT |
-| PR #6 | 5980294065 | 2026-10-04T13:10:02Z | Antigravity |
-| Issue #3 | 5980298133 | 2026-10-04T13:10:27Z | DeepSeek |
-| Issue #3 | 5980409899 | 2026-10-04T13:22:02Z | Vibe GLM |
-| Issue #3 | 5980474094 | 2026-10-04T13:28:20Z | DeepSeek |
-| PR #5 | 5980434045 | 2026-10-04T13:24:29Z | DeepSeek |
-| PR #7 | 5980409484 | 2026-10-04T13:21:59Z | Grok |
-| PR #5 | 5980600543 | 2026-10-04T13:40:19Z | ChatGPT |
-| PR #5 | 5980698640 | 2026-10-04T13:50:07Z | Vibe GLM |
-| PR #5 | 5980737248 | 2026-10-04T13:53:55Z | ChatGPT |
-| PR #8 | 5980725021 | 2026-10-04T13:52:45Z | Grok |
-
-[C-FIX]: https://github.com/rfkevin/project-mcp-collab/pull/5#issuecomment-5980698640
-[C-RETEST]: https://github.com/rfkevin/project-mcp-collab/pull/5#issuecomment-5980737248
-[C-AGREE]: https://github.com/rfkevin/project-mcp-collab/pull/5#issuecomment-5980777919
-[STATE-TEST]: https://github.com/rfkevin/project-mcp-collab/pull/8#issuecomment-5980725021
-
-## T60 finding dispositions (proposed)
-Source: [TRIAL]; supporting reports [TRIAL-AB]/[TRIAL-C]. No historical report overwritten.
-| ID | Disposition | Owner | Evidence / next action |
-| --- | --- | --- | --- |
-| F-T60-STATE-STATUS | fix_now | Codex | Placement-based wording above survives merge; independent review pending |
-| F-T60-NEXT-ACTION | fix_now | Codex | Completed reviews/trials removed from pending actions; new review pending |
-| F-T60-T30-REF | fix_now | Codex | Record merged a888c72 and distinguish prior review target |
-| F-T60-PAGINATION-REVISION | rejected_with_reason | Codex | At trial SHA, TOOL_TIPS:11 explicitly requires revision when offset>0; R1:24 already says follow nextOffset with revision. Optional wording polish only; no missing-contract defect established |
-| F-T60-V16-COVERAGE | follow_up | ChatGPT | b/c remain not_tested; document limits for owner acceptance, no fabricated checks |
-| F-T60-V04-EDIT | fix_now; resolved_with_evidence | Vibe / ChatGPT | [VIBE-RETEST] fixture simulation, independently accepted [T40-RENEW]; real edit not claimed |
-| F-T60-V12-MEASUREMENT | fix_now; resolved_with_evidence | Vibe / ChatGPT | [VIBE-RETEST]/[T40-RENEW]: executed 4 vs 1 calls, 480 vs 222 argument bytes, 7291 vs 2959 ms; 27626 content bytes each; single run, tokens not_measured |
-| F-T60-V09-CAUSE | fix_now; resolved_with_evidence | ChatGPT | [T40-RENEW] explicitly withdraws causal inference; V09 pass remains simulation only |
-| F-T60-NAVIGATION | resolved_with_evidence | Grok / Vibe | Map PR #11 and scenario status/result pointers PR #12 merged on main f55ab46; docs/code-map.md and docs/validation/scenarios.md verified. Final consolidation review and Kevin acceptance remain separate closure gates |
-
-Closure gate: independent T60 review + affected evidence corrections/retests + final link/state check + explicit Kevin acceptance. No new runtime or phase transition inferred.
-
-## Latest complete checkpoints (Codex)
-All sources use rfkevin-github-mcp[bot]; names remain declared labels.
-| Source | ID | updatedAt UTC | Label |
-| --- | --- | --- | --- |
-| Issue #3 | 5980899356 | 2026-10-04T14:11:55Z | ChatGPT |
-| Issue #3 | 5980904417 | 2026-10-04T14:12:33Z | Vibe GLM |
-| Issue #3 | 5981035321 | 2026-10-04T14:26:42Z | Antigravity |
-| Issue #3 | 5981223877 | 2026-10-04T14:46:53Z | ChatGPT |
-| PR #8 | 5980819692 | 2026-10-04T14:01:55Z | Vibe GLM |
-
-[T01-ACK]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5980899356
-[TRIAL]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5981223877
-[TRIAL-AB]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5980904417
-[TRIAL-C]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5981035321
-[B-REVIEW]: https://github.com/rfkevin/project-mcp-collab/pull/8#issuecomment-5980819692
-[B-TEST]: https://github.com/rfkevin/project-mcp-collab/pull/8#issuecomment-5980848306
-
-## T60 evidence renewal
-- Vibe executed the missing baseline and supplied an edit-detection fixture; ChatGPT independently reviewed the record, without claiming timing reproduction.
-- V12 reports file-content bytes, not full response-envelope bytes or total model context; no generalized speed/token benefit inferred.
-- Duplicate ChatGPT corrections below express the same outcome; no cause of duplicate publication inferred.
-| Source | ID | updatedAt UTC | Declared label | Read |
-| --- | --- | --- | --- | --- |
-| Issue #3 | 5982627823 | 2026-10-04T17:34:54Z | Vibe GLM | complete |
-| Issue #3 | 5982633386 | 2026-10-04T17:35:34Z | ChatGPT | complete |
-| Issue #3 | 5982634909 | 2026-10-04T17:35:45Z | ChatGPT | complete |
-| PR #10 | 5982627974 | 2026-10-04T17:34:55Z | Vibe GLM | complete |
-Reader: Codex; posting account: rfkevin-github-mcp[bot]; full bodies read through disclosed API fallback.
-[VIBE-RETEST]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5982627823
-[T40-RENEW]: https://github.com/rfkevin/project-mcp-collab/issues/3#issuecomment-5982634909
-[STATE3-REVIEW]: https://github.com/rfkevin/project-mcp-collab/pull/10#issuecomment-5982627974
-[GROK-REV3]: https://github.com/rfkevin/project-mcp-collab/pull/10#issuecomment-5983609876
-[T60-FINAL]: https://github.com/rfkevin/project-mcp-collab/pull/10#issuecomment-5983625092
-
+## Evidence
+| source | state |
+| --- | --- |
+| #16 plan and annexes C1-C4 | read in full |
+| #16 discussion to 6013325692 | read in full |
+| github-mcp PRs 36, 37, 38, 42, 43 | verdicts re-read (see acceptance-results.md) |
+| portalshall #3 | merged 8e6b163, test 6012556685 |
+| project-mcp-collab #18 | Sol agree 6012998068, Grok pass 6013290108 at 2c0e66b |
+| #16 6013591994 | Grok G5-F6 tests of L3 and L4 (pass_with_limits), L1 D12 debt confirmed |
+| project-mcp-collab #19 6013711013 | Vibe test pass at 2f40883 (previous head) |
