@@ -1,9 +1,9 @@
 # CC-2 state
 schema_version: CC-STATE-1
 workflow_id: CC-2
-revision: 3
-base_revision: 2
-next_action: Vibe GLM executes G5-F8 on rfkevin/portalshall using the deployed CC2 tool path: github_plan_project_bootstrap preview -> apply -> preview; publish evidence and stop for independent Grok verification.
+revision: 4
+base_revision: 3
+next_action: Claude executes G5-F9 routing convergence: use github-mcp PR #49 as the base, independently assess PR #50, integrate only improvements that preserve canonical WORKFLOW_STATE authority and fail-closed semantics, run targeted/full tests, update #49, publish evidence, then STOP for independent review.
 canonical_ref: main
 based_on_sha: e346f2288875b98af57d8101841e569cd5f99344
 phase: P6
@@ -41,7 +41,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | Grok | L5 author; reviewer L3; tester L1, L2, L3, L4, L6, L7, G5 | none recorded |
 | Muse Spark | L0 author; L7 coordinator; unavailable since L6 | none while unavailable |
 | Cline | L0 tester; L7 author (portalshall #3) | none (the L4 test was supplied by Grok) |
-| Claude | L3 and L6 author; L7/G5 closure; G5-F8 independent verifier | after Vibe publishes G5-F8 evidence, independently verify the portalshall bootstrap runtime result and report verdict |
+| Claude | L3 and L6 author; L7/G5 closure; G5-F8 verifier; G5-F9 routing convergence author | G5-F9: use github-mcp#49 as base; assess #50 independently; preserve canonical-state authority/fail-closed behavior; update #49 with tests/evidence; stop for independent review |
 
 ## Tasks
 | id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
@@ -63,7 +63,8 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | G5-F2 | blocked | Kevin | owner | none | none | none | G5 | owner decision | 0a2063a | github-mcp cc2-integration | preview deployment, then real rerun of CC2-01/03/05/07/10 with two clients |
 | G5-F3 | done | Vibe GLM | author | Claude | Grok | src/collab/context.ts | L2 | none | 5518527 | github-mcp#44 | Markdown link targets extracted as source locations; merged to integration with review and independent test |
 | G5-F7 | done | Claude | author | Vibe GLM | Grok | src/collab/context.ts | G5-F3 finding | none | 4723ae3 | github-mcp#47 | coverage.refreshed fix merged to integration; post-deploy runtime mutation probe passed |
-| G5-F8 | in_progress | Vibe GLM | tester | GPT-5.6 Sol | Claude | none | G5-F3 | none | cc2-test | rfkevin/portalshall | Vibe: github_plan_project_bootstrap preview -> apply -> preview via deployed CC2 and publish exact evidence; Claude: independently verify that evidence/result, publish verdict, then stop |
+| G5-F8 | blocked | Vibe GLM | tester | GPT-5.6 Sol | Claude | none | G5-F3 | portalshall master already bootstrapped; real creation needs an isolated unbootstrapped ref/fixture | cc2-test | rfkevin/portalshall | resume after routing convergence with a safe unbootstrapped sandbox/ref; no main/master mutation |
+| G5-F9 | in_progress | Claude | author | GPT-5.6 Sol | pending independent tester | src/collab/task-selection.ts, src/collab/context.ts, related schema/tests/docs | G5-F7 | none | github-mcp#49 | github-mcp#49 and #50 | converge routing: #49 is base; inspect #50; canonical pointers remain authoritative; status may only be additive fallback if proven safe; ambiguity fails closed; preserve simple GitHub MCP and existing CC2 contracts; tests then STOP |
 | MEM | blocked | Kevin | owner | none | none | none | G5 | owner decision | CC2-M01..M08 | acceptance-results.md CC2-17 | open the L5 electorate or defer |
 | PROMOTE | blocked | Kevin | owner | none | none | none | G5-F1, G5-F2, D12 | owner decision | 0a2063a | github-mcp master cd8089a | promotion to master and production stay Kevin's |
 A task is not done because a role was accepted. done = merged with recorded review and test; verified = review and test recorded, not merged. D12 holds when the tester is neither the owner nor a reviewer of the task; L1 and L3 do not meet it (task D12).
