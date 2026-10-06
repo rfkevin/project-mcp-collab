@@ -78,3 +78,5 @@ A task is not done because a role was accepted. done = merged with recorded revi
 
 <!-- CC2 F2 controlled reread probe: 2026-10-06; test branch only; no authority/state semantic change. -->
 <!-- CC2 F2 controlled mutation after checkpoint A; reread detection probe only. -->
+
+<!-- CC2 F2 post-47 runtime refreshed probe; test branch only; no authority/state semantic change. -->
