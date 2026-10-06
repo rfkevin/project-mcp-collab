@@ -28,7 +28,7 @@ Names are declared labels, not authenticated identities. Each line states how th
 - Kevin, 2026-10-06, reported by Sol in #16 (6013325692): GPT-5.6 Sol is substitute coordinator for the rest of P6/G5 to G6. Owner authority is not transferred.
 - Kevin, 2026-10-06, direct instruction in Claude's chat: the cycle is in P6.
 - GPT-5.6 Sol as coordinator, 2026-10-06, reported by Grok in #16 (6013591994): Grok supplies the missing independent tests of L3 and L4 (G5-F6). Not an owner decision.
-- Kevin, 2026-10-06, direct instruction in coordinator chat: continue F2 and assign Vibe GLM the real portalshall bootstrap runtime test; GPT-5.6 Sol records G5-F8, with Grok as independent verifier. This does not authorize any main/master merge or production deployment.
+- Kevin, 2026-10-06, direct instruction in coordinator chat: continue F2 and assign Vibe GLM the real portalshall bootstrap runtime test; GPT-5.6 Sol records G5-F8. Grok later became unavailable and Kevin explicitly authorized Claude as the independent verifier. This does not authorize any main/master merge or production deployment.
 Kevin alone decides waivers, gate acceptance, merges to main or master, promotion and deployment.
 
 ## Roles
@@ -41,7 +41,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | Grok | L5 author; reviewer L3; tester L1, L2, L3, L4, L6, L7, G5 | none recorded |
 | Muse Spark | L0 author; L7 coordinator; unavailable since L6 | none while unavailable |
 | Cline | L0 tester; L7 author (portalshall #3) | none (the L4 test was supplied by Grok) |
-| Claude | L3 and L6 author; L7/G5 closure; this state successor | Sol review of this state PR; Vibe test to renew at the new head |
+| Claude | L3 and L6 author; L7/G5 closure; G5-F8 independent verifier | after Vibe publishes G5-F8 evidence, independently verify the portalshall bootstrap runtime result and report verdict |
 
 ## Tasks
 | id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
@@ -63,7 +63,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | G5-F2 | blocked | Kevin | owner | none | none | none | G5 | owner decision | 0a2063a | github-mcp cc2-integration | preview deployment, then real rerun of CC2-01/03/05/07/10 with two clients |
 | G5-F3 | done | Vibe GLM | author | Claude | Grok | src/collab/context.ts | L2 | none | 5518527 | github-mcp#44 | Markdown link targets extracted as source locations; merged to integration with review and independent test |
 | G5-F7 | done | Claude | author | Vibe GLM | Grok | src/collab/context.ts | G5-F3 finding | none | 4723ae3 | github-mcp#47 | coverage.refreshed fix merged to integration; post-deploy runtime mutation probe passed |
-| G5-F8 | in_progress | Vibe GLM | tester | GPT-5.6 Sol | Grok | none | G5-F3 | none | cc2-test | rfkevin/portalshall | call github_plan_project_bootstrap on portalshall; preview -> apply -> preview via deployed CC2; publish exact evidence; stop for Grok independent verification |
+| G5-F8 | in_progress | Vibe GLM | tester | GPT-5.6 Sol | Claude | none | G5-F3 | none | cc2-test | rfkevin/portalshall | Vibe: github_plan_project_bootstrap preview -> apply -> preview via deployed CC2 and publish exact evidence; Claude: independently verify that evidence/result, publish verdict, then stop |
 | MEM | blocked | Kevin | owner | none | none | none | G5 | owner decision | CC2-M01..M08 | acceptance-results.md CC2-17 | open the L5 electorate or defer |
 | PROMOTE | blocked | Kevin | owner | none | none | none | G5-F1, G5-F2, D12 | owner decision | 0a2063a | github-mcp master cd8089a | promotion to master and production stay Kevin's |
 A task is not done because a role was accepted. done = merged with recorded review and test; verified = review and test recorded, not merged. D12 holds when the tester is neither the owner nor a reviewer of the task; L1 and L3 do not meet it (task D12).
