@@ -61,7 +61,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | T-L4 | done | Grok | tester | none | none | none | L4 | none | 0a2063a | #16 6013591994 | pass_with_limits |
 | D12 | blocked | Kevin | owner | none | none | none | L1, L3 | owner decision | 0a2063a | acceptance-results.md G5-F6 | waive, or assign a distinct tester: L1 (eligible GPT-5.6 Sol, Claude, Cline, Muse Spark), L3 (eligible GPT-5.6 Sol, Muse Spark, Cline, Codex) |
 | G5-F2 | blocked | Kevin | owner | none | none | none | G5 | owner decision | 0a2063a | github-mcp cc2-integration | preview deployment, then real rerun of CC2-01/03/05/07/10 with two clients |
-| G5-F3 | proposed | Vibe GLM | author | none | none | src/collab/context.ts | L2 | none | 0a2063a | acceptance-results.md G5-F3 | extract Markdown link targets as source locations; add a fixture |
+| G5-F3 | done | Vibe GLM | author | Claude | Grok | src/collab/context.ts | L2 | none | 5518527 | github-mcp#44 | Markdown link targets extracted as source locations; merged to integration with review and independent test |
 | G5-F7 | done | Claude | author | Vibe GLM | Grok | src/collab/context.ts | G5-F3 finding | none | 4723ae3 | github-mcp#47 | coverage.refreshed fix merged to integration; post-deploy runtime mutation probe passed |
 | G5-F8 | in_progress | Vibe GLM | tester | GPT-5.6 Sol | Grok | none | G5-F3 | none | cc2-test | rfkevin/portalshall | call github_plan_project_bootstrap on portalshall; preview -> apply -> preview via deployed CC2; publish exact evidence; stop for Grok independent verification |
 | MEM | blocked | Kevin | owner | none | none | none | G5 | owner decision | CC2-M01..M08 | acceptance-results.md CC2-17 | open the L5 electorate or defer |
