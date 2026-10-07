@@ -3,7 +3,7 @@ schema_version: CC-STATE-1
 workflow_id: CC-3
 revision: 3
 base_revision: 2
-next_action: Muse Spark starts C1 from cc3-integration 30b3168 and tests C0 PR github-mcp#54 at 5ddb41b; Claude reviews T1 PR github-mcp#55 at 8a6dc6e and reruns C0 on cc3-test after K3; Kevin: K5 (run_checks on cc3-test), then K3 (cc3-test env + D1 COLLAB_DB), then merges after recorded review and test. The C0 GO stays local until the K3 cloud rerun.
+next_action: Muse Spark starts C1 from cc3-integration 30b3168 and tests C0 PR github-mcp#54 at 5ddb41b; Claude has reviewed T1 PR github-mcp#55 (agree at 8a6dc6e) and reruns C0 on cc3-test after K3; Kevin: K5 (run_checks on cc3-test), then K3 (cc3-test env + D1 COLLAB_DB), then merges after recorded review and test. The C0 GO stays local until the K3 cloud rerun.
 canonical_ref: main
 based_on_sha: 245ac672c36608662dedd034a406b400496e0233
 phase: P5
@@ -31,11 +31,11 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | Actor | Scoped acceptance/assignment | Pending evidence |
 | --- | --- | --- |
 | Kevin | owner | K3, K4, K5, K6, K7, K8 |
-| Claude | assembler; author C0, C5; reviewer C2, C6, T1; tester C4 | C0 cloud rerun after K3; T1 review of PR #55 |
+| Claude | assembler; author C0, C5; reviewer C2, C6, T1; tester C4 | C0 cloud rerun after K3; T1 review recorded (agree at 8a6dc6e) |
 | Muse Spark | author C1, C6; reviewer C3; tester C0, C2 | C1 not started; C0 test of PR #54 not yet reported; roles accepted in #25 6035552091 (C2 tester confirmed) |
 | Vibe GLM | author C2; reviewer C1; tester C3, C6; T0 guide | none before dependencies |
 | GPT-5.6 Sol | author C3; reviewer C4; tester C5; C7 coordinator | none before dependencies |
-| Grok | author C4, T1; reviewer C0, C5, T0; tester C1 | C0 review recorded (agree at 5ddb41b); T1 study delivered in PR #55, awaiting Claude review |
+| Grok | author C4, T1; reviewer C0, C5, T0; tester C1 | C0 review recorded (agree at 5ddb41b); T1 study delivered in PR #55, Claude review agree recorded, PR still draft |
 
 ## Tasks
 | id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
@@ -49,7 +49,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | C6 | proposed | Muse Spark | author | Claude | Vibe GLM | src/collab-store/export/, docs/collaboration/cc3/ | C2 | waiting dependencies | none | #25 C6 | wait for C2 |
 | C7 | proposed | GPT-5.6 Sol | assembler | none | none | project-mcp-collab docs/coordination/cc3/ trial files | C3, C4, C5, C6, K6 | waiting dependencies | none | #25 C7 | wait for C3-C6 and K6 |
 | T0 | blocked | Kevin | owner | Grok | none | docs/collaboration/cc3/run-checks.md (Vibe guide) | K1 | owner action K5 | none | #25 T0 | Kevin enables run_checks on cc3-test |
-| T1 | review | Grok | author | Claude | none | github-mcp docs/collaboration/cc3/t1-sandbox-study.md | none | Claude review pending | 8a6dc6e | github-mcp#55; #25 T1 | Claude reviews #55 (draft PR); non-blocking; location moved from the plan |
+| T1 | review | Grok | author | Claude | none | github-mcp docs/collaboration/cc3/t1-sandbox-study.md | none | review recorded; PR still draft; merge by Kevin | 8a6dc6e | github-mcp#55; #25 T1 | Grok may apply the three non-blocking remarks; Kevin merges; non-blocking; location moved from the plan |
 | K3 | blocked | Kevin | owner | none | none | none | K2 | owner action | none | #25 section 8 | create cc3-test Worker, KV, D1 COLLAB_DB |
 A task is not done because a role was accepted. done = merged with recorded review and test; verified = review and test recorded, not merged.
 
@@ -61,5 +61,5 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | github-mcp cc3-integration | created at 30b31686cf3e4b89ab87232df4c6b5154ba7464b |
 | github-mcp PR #54 (C0) | head 5ddb41b, CI 4/4; Grok review agree at that head (6035586117, 6035586721); vitest.config.mts deviation approved by Grok; Muse Spark test not reported; Kevin has not merged |
 | #25 6035552091 (Muse Spark) | acceptances confirmed (C1 author, C0 and C2 tester, C3 reviewer, C6 author, C7); posted through a human-credential CLI, declared not an owner decision; C1 not started |
-| github-mcp PR #55 (T1) | draft, head 8a6dc6e, Grok author, Claude reviewer; study moved from project-mcp-collab to github-mcp docs/collaboration/cc3/; no review recorded yet |
+| github-mcp PR #55 (T1) | draft, head 8a6dc6e, Grok author, Claude reviewer; study moved from project-mcp-collab to github-mcp docs/collaboration/cc3/; Claude review agree at that head (github-mcp#55 comment 6035930987), CI 4/4, three non-blocking remarks |
 | project-mcp-collab PR #26 review 6035804243 | GPT-5.6 Sol, changes_requested at 45adf67e: operational facts out of date; this revision answers it; re-review expected at the new head |
