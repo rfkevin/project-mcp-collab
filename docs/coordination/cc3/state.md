@@ -40,7 +40,7 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 ## Tasks
 | id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| C0 | review | Claude | author | Grok | Muse Spark | src/collab-store/proto/, test/collab-store/c0/, docs/collaboration/cc3/c0-gate.md | K2 | Muse Spark test pending; cloud part waits for K3 | 5ddb41b | github-mcp#54; #25 C0 | Muse Spark tests #54; Claude reruns on cc3-test after K3; merge by Kevin. Review agree by Grok at 5ddb41b; GO D1 is local only
+| C0 | review | Claude | author | Grok | Muse Spark | src/collab-store/proto/, test/collab-store/c0/, docs/collaboration/cc3/c0-gate.md | K2 | Muse Spark test pending; cloud part waits for K3 | 5ddb41b | github-mcp#54; #25 C0 | Muse Spark tests #54; Claude reruns on cc3-test after K3; merge by Kevin. Review agree by Grok at 5ddb41b; GO D1 is local only |
 | C1 | accepted | Muse Spark | author | Vibe GLM | Grok | src/collab-store/contracts/, src/collab-store/schema/0001_init.sql, test/collab-store/contracts/ | K2 | none | 30b3168 | #25 C1 | Muse Spark starts from cc3-integration 30b3168; K2 branch exists |
 | C2 | proposed | Vibe GLM | author | Claude | Muse Spark | src/collab-store/store/, src/collab-store/mcp/, src/index.ts route line | C0 GO, C1 | waiting dependencies | none | #25 C2 | wait for C0 GO and C1 |
 | C3 | proposed | GPT-5.6 Sol | author | Muse Spark | Vibe GLM | src/collab-store/context/, src/collab-store/phases/ | C2 | waiting dependencies | none | #25 C3 | wait for C2 |
