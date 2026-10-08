@@ -92,6 +92,7 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | github-mcp PR #64 (C5) | open draft, head b0c0141; CI 4/4; GPT-5.6 Sol test PASS_WITH_LIMITS (6047695154); reviewer changed to Vibe GLM (6054734086) |
 | github-mcp PR #71 (T0 guide) | open, head e9f4e9d; CI 4/4; Claude review agree (6054720155) |
 | github-mcp PR #73 (S5 harness) | open, head 38d7750, documentation only; CI 4/4; no reviewer named |
-| github-mcp get_pull_request vs comment guard | after #72, get_pull_request still reported base 298ef4d for #67 and #71 while the review guard required the live base 33d6602; reported to Kevin as a tool inconsistency || github-mcp PR #64 (C5) merge | merged into cc3-integration (e0e8484) after Vibe GLM review agree (6054819060) |
+| github-mcp get_pull_request vs comment guard | after #72, get_pull_request still reported base 298ef4d for #67 and #71 while the review guard required the live base 33d6602; reported to Kevin as a tool inconsistency |
+| github-mcp PR #64 (C5) merge | merged into cc3-integration (e0e8484) after Vibe GLM review agree (6054819060) |
 | github-mcp PR #71 (T0) merge | merged into cc3-integration (0075d81) |
 | project-mcp-collab PR #29 | merged into the revision 5 branch after #28 reached main, so revision 6 did not reach main; carried over by this PR |
