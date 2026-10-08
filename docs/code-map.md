@@ -9,6 +9,7 @@ Domain → primary files. Update on moves.
 | Mandatory agent protocol | AGENTS.md |
 | Phase/role rules | WORKFLOW.md |
 | Approved shared state | WORKFLOW_STATE.md (CC-2, CC-STATE-1 contract: github-mcp docs/collaboration/contract.md) |
+| CC-3 approved snapshots | docs/coordination/cc3/state.md (snapshot, not a real-time board; post-audit rev 7 proposed in F6-A10) |
 | CC-1 final snapshot (rev 4, read-only history) | docs/coordination/history/cc1-state-rev4.md |
 | State field contract (CC-1) | docs/coordination/state-contract.md |
 | Frozen plan baseline | docs/coordination/plan-v1.2.md |
@@ -32,7 +33,9 @@ Domain → primary files. Update on moves.
 ## Execution board
 | Domain | Paths |
 | --- | --- |
-| Live task allocation | issue #3 |
+| Live task allocation (CC-1 baseline) | issue #3 |
+| CC-3 canonical plan | issue #25 |
+| CC-3 post-audit correction board | issue #31; source audit rfkevin/github-mcp#79 |
 | Design history | issue #2 |
 | Framing / debate | issue #1 |
 
@@ -45,4 +48,4 @@ Domain → primary files. Update on moves.
 | T40/D | ChatGPT | docs/validation/scenarios.md | design #7; results pointers #12; trial verified (limits: V04-edit/V08/V09 sim; V16b/c not_tested) |
 | T60 | Codex | WORKFLOW_STATE findings | #10 (rev 3), #11 and #12 merged; Kevin acceptance; consolidation PR |
 
-Updated 2026-10-04 for T60 #10 and trial supplements; reconciled after merges #10-#12 by the consolidation PR. Trial combined SHA: 1336c650.
+Updated 2026-10-08 for CC-3 A10: CC-3 snapshot path, canonical plan #25, post-audit correction board #31 and Codex audit github-mcp#79 are now explicit. Older CC-1/CC-2 mappings remain for their still-open history.
