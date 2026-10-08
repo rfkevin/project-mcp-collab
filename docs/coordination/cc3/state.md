@@ -3,7 +3,7 @@ schema_version: CC-STATE-1
 workflow_id: CC-3
 revision: 7
 base_revision: 6
-next_action: Post-audit correction wave project-mcp-collab#31 is open from Codex audit github-mcp#79 at cc3-integration@77ffeae. C0-C6 are merged. GPT-5.6 Sol updates A10 in this snapshot; F1-F5 and A11 remain separate correction work. C7 stays blocked until A01-A09 are corrected with independent exact-SHA review/test, A10/A11 are resolved, K4/K6 are ready, and the integrated SHA passes global revalidation. Kevin alone merges and decides promotion.
+next_action: Post-audit correction wave #31 is active. F1/#82, F2/#81, F4/#83 and F3/#84 are merged; cc3-integration is now e15bb4d9e4c391570d46c01cd01c96107a70f927. F5/#80 remains in progress: Grok completes A07/A09 regression/E2E coverage and resyncs onto the live integration head, then GPT-5.6 Sol reviews and Claude tests the exact final head/base. F6-A10/#32 needs Claude's renewed review after this factual correction plus a distinct tester still to be assigned by Kevin; A11, K4/K6 and global revalidation also remain before C7. Kevin alone merges and decides promotion.
 canonical_ref: main
 based_on_sha: c8547caa1d6e1fd379d4c1073dbaa79a6171f514
 phase: P5
@@ -38,18 +38,20 @@ Names are declared labels, not authenticated identities. The C5 owner-channel im
 - Kevin, 2026-10-08 09:21 Paris, in Claude's chat ("Oui"): Claude writes this revision.
 - Kevin, 2026-10-08 09:41 Paris, in Claude's chat: reported that C5 is merged (observed: github-mcp#64 merged into cc3-integration e0e8484, after Vibe GLM's review agree 6054819060); T0 guide merged (github-mcp#71, 0075d81).
 - Kevin, 2026-10-08, coordinator chat after the Codex audit: the audit correction wave is handled before C7; GPT-5.6 Sol creates project-mcp-collab#31 to organize A01-A11. This does not authorize production or main/master promotion.
-- Kevin, 2026-10-08, coordinator chat: "Fais ta tâche je vais dire aussi au autre de faire de même". This authorizes GPT-5.6 Sol to execute the coordinator-side A10 refresh now; assignments to the other correction authors are not inferred here until their own handoff is observed.
+- Kevin, 2026-10-08, coordinator chat: "Fais ta tâche je vais dire aussi au autre de faire de même". This authorizes GPT-5.6 Sol to execute the coordinator-side A10 refresh now.
+- Kevin, 2026-10-08 20:41 Paris, in Claude's chat (reported by Claude in #31 6067359542 and PR #32 review 6068775540): Claude executes F2 and F4 as author under the #31 matrix.
+- Kevin, 2026-10-08 22:47 Paris, in Claude's chat (reported by Claude in PR #32 review 6068775540): Claude is the independent reviewer for F6-A10. No distinct tester is inferred from that assignment.
 Kevin alone decides waivers, gate acceptance, merges to main or master, promotion and deployment.
 
 ## Roles
 | Actor | Scoped acceptance/assignment | Pending evidence |
 | --- | --- | --- |
-| Kevin | owner | K4/K6 runtime setup, merges of post-audit correction PRs, C7 gate, promotion/deployment decisions |
-| Claude | assembler; author C0, C5, C6; reviewer C2, C3, T0, T1; tester C4 | C0/C5/C6 merged; C4 final independent PASS recorded before merge; post-audit product work is tracked in #31 and must keep D12 |
+| Kevin | owner | K4/K6 runtime setup; assigns remaining independent tester for F6-A10; merges correction PRs; C7 gate and promotion/deployment decisions |
+| Claude | assembler; author C0, C5, C6, F2, F4; reviewer C2, C3, T0, T1, F1, F6-A10; tester C4, F3, F5 | F2/F4 merged; F1 review complete; F3 formal PASS 6070204581; F5 formal test waits for final Grok head after Sol review; F6-A10 review must be renewed after this correction |
 | Muse Spark | author C1; tester C0 | C1 merged; no longer C6 author after Kevin reassigned C6 to Claude |
-| Vibe GLM | author C2; C4 final author/reprise after the owner correction; reviewer C1, C5; tester C3; T0 guide | C2/C4 merged; post-audit F1/F3 proposals live in #31, assignment evidence to be recorded when observed |
-| GPT-5.6 Sol | author C3; reviewer C4, C6; tester C5; C7 coordinator; A10 coordinator-side author | C3/C4/C5/C6 evidence complete enough for merge; A10 refresh in progress on this branch; C7 blocked by #31 gate |
-| Grok | original C4 author, author T1; reviewer C0; tester C1, C2, C6 | C4 was ultimately resumed by Vibe GLM; C6 final tester role replaced Vibe GLM by Kevin; post-audit F5 proposal remains unconfirmed until handoff evidence is observed |
+| Vibe GLM | author C2; C4 final author/reprise; author F1, F3; reviewer C1, C5; tester C3; T0 guide | F1 and F3 merged after independent review/test |
+| GPT-5.6 Sol | author C3; reviewer C4, C6, F3, F4, F5; tester C5, F2; C7 coordinator; F6-A10 author/coordinator | F2 test complete; F3/F4 reviews complete; F5 review waits for Grok final resync/tests; F6-A10 cannot be self-reviewed/tested |
+| Grok | original C4 author; author T1, F5; reviewer C0, F2; tester C1, C2, C6, F1, F4 | F1/F2/F4 evidence complete; F5 remains in progress and must finish A07/A09 coverage then resync to live integration |
 
 ## Tasks
 | id | status | owner | role | reviewer | tester | owned_paths | dependencies | blocker | version | ref | next_action |
@@ -62,12 +64,12 @@ Kevin alone decides waivers, gate acceptance, merges to main or master, promotio
 | C5 | done | Claude | author | Vibe GLM (for Grok) | GPT-5.6 Sol | src/collab-store/owner/, src/collab-store/identity/, docs/collaboration/cc3/owner-setup.md | C1 | none | b0c0141 | github-mcp#64 merged (e0e8484) | Delivered. K4 owner-channel runtime setup and K6 client mappings remain C7 prerequisites; post-audit owner findings A02/A06 are tracked in F2 |
 | C6 | done | Claude (for Muse Spark) | author | GPT-5.6 Sol | Grok (for Vibe GLM) | src/collab-store/export/, docs/collaboration/cc3/ | C2-C5 | none | 1fc4ac7 | github-mcp#75 merged (77ffeae) | Delivered after resync on merged C4 with renewed Sol review and Grok test. Post-audit export-coherence finding A04 is tracked in F4 |
 | C7 | blocked | GPT-5.6 Sol | coordinator | none | none | project-mcp-collab docs/coordination/cc3/ trial files | F1-F5, F6-A10, F6-A11, K4, K6 | post-audit gate #31 | none | #25 C7; project-mcp-collab#31 | Start only after A01-A09 exact-SHA corrections/reviews/tests, A10/A11 closure, K4/K6 readiness, and global integrated revalidation |
-| F1 | proposed | Vibe GLM (proposed) | author | Claude (proposed) | Grok (proposed) | github-mcp src/collab-store/store/ + related MCP guards | audit #79 | assignment and implementation not yet observed | A01/A05/A08 | project-mcp-collab#31; github-mcp#79 | Await direct handoff, then PR to cc3-integration with targeted concurrency/idempotence/permission tests |
-| F2 | proposed | Claude (proposed) | author | Grok (proposed) | GPT-5.6 Sol (proposed) | github-mcp src/collab-store/owner/ | audit #79 | assignment and implementation not yet observed | A02/A06 | project-mcp-collab#31; github-mcp#79 | Await direct handoff, then immutable owner-request targeting + pending pagination tests |
-| F3 | proposed | Vibe GLM (proposed) | author | GPT-5.6 Sol (proposed reviewer) | Claude (proposed) | github-mcp src/collab-store/memory/ | audit #79 | assignment and implementation not yet observed | A03 | project-mcp-collab#31; github-mcp#79 | Await direct handoff, then atomic activation/counter/budget concurrency correction |
-| F4 | proposed | Claude (proposed) | author | GPT-5.6 Sol (proposed reviewer) | Grok (proposed) | github-mcp src/collab-store/export/ | audit #79 | assignment and implementation not yet observed | A04 | project-mcp-collab#31; github-mcp#79 | Await direct handoff, then coherent snapshot or explicit retry/refusal semantics |
-| F5 | proposed | Grok (proposed) | author | GPT-5.6 Sol (proposed reviewer) | Claude (proposed) | github-mcp C3 phases + C2-C6 MCP integration | audit #79 | explicit handoff not yet observed | A07/A09 | project-mcp-collab#31; github-mcp#79 | Confirm matrix before coding; wire the complete real-client path and transition contract |
-| F6-A10 | in_progress | GPT-5.6 Sol | author/coordinator | pending distinct reviewer | pending distinct tester | docs/coordination/cc3/state.md, docs/code-map.md, AGENT_MEMORY.md | audit #79 | none | revision 7 | project-mcp-collab#31 | Publish refreshed snapshot PR, then STOP for independent review/test and Kevin merge |
+| F1 | done | Vibe GLM | author | Claude | Grok | github-mcp src/collab-store/store/ + related MCP guards | audit #79 | none | A01/A05/A08 | github-mcp#82 merged (bc22543) | Final head 9c004ba; Claude AGREE and Grok PASS renewed on base 8b1cb48 before Kevin merge |
+| F2 | done | Claude | author | Grok | GPT-5.6 Sol | github-mcp src/collab-store/owner/ | audit #79 | none | A02/A06 | github-mcp#81 merged (af940248) | Final head 3baa575; Grok AGREE, Sol PASS, CI 4/4 before Kevin merge |
+| F3 | done | Vibe GLM | author | GPT-5.6 Sol | Claude | github-mcp src/collab-store/memory/ | audit #79 | none | A03 | github-mcp#84 merged (e15bb4d) | Final head 63c9d13; Sol AGREE 6070119116 + Claude formal PASS 6070204581 at base bc22543 before Kevin merge |
+| F4 | done | Claude | author | GPT-5.6 Sol | Grok | github-mcp src/collab-store/export/ | audit #79 | none | A04 | github-mcp#83 merged (8b1cb48) | Final head 0ef8f1a; renewed Sol AGREE + Grok PASS and CI 4/4 before Kevin merge |
+| F5 | in_progress | Grok | author | GPT-5.6 Sol | Claude | github-mcp C3 phases + C2-C6 MCP integration | audit #79 | A09 incomplete; requested A07 regression/MCP tests not yet in PR; branch still based on 77ffeae | A07/A09 | github-mcp#80 head 9c90f74 | Grok adds requested D1/MCP regression tests, completes context+memory+real E2E A09, then resyncs once onto cc3-integration@e15bb4d; Sol reviews and Claude formally tests the exact final head/base |
+| F6-A10 | review | GPT-5.6 Sol | author/coordinator | Claude | pending distinct tester | docs/coordination/cc3/state.md, docs/code-map.md, AGENT_MEMORY.md | audit #79 | distinct tester not assigned | revision 7 | project-mcp-collab#32 | This commit resolves Claude's factual CHANGES_REQUESTED 6068775540; Claude renews review at the new head, Kevin assigns a distinct tester (eligible non-author/non-reviewer), then tester validates and Kevin merges |
 | F6-A11 | proposed | pending | author | pending | pending | github-mcp connector issue-body reading, coordinated with #26 | audit #79 | assignment not yet observed | A11 | project-mcp-collab#31; github-mcp#26,#79 | Avoid duplicate implementation; add paginated/revision-safe body continuation |
 | T0 | done | Kevin | owner | Claude (for Grok) | none | docs/collaboration/cc3/run-checks.md (Vibe guide) | K1 | none | e9f4e9d | #25 T0; github-mcp#59, #61, #71, #72 | K5 done: run_checks configured (#59), mcp:checks required at consent (#61), controller re-pinned to master 774a311 after the feedback consolidation (#72, merged into cc3-integration 33d6602). Claude verified run 37660768469 on 54a2c03 (quick, verifiedSuccess true, reuse on the second call). Guide by Vibe GLM in github-mcp#71: Claude changes_requested at b8241c5 (6054654896), five corrections made, review agree at e9f4e9d (6054720155), CI 4/4. Merged by Kevin (0075d81) |
 | T1 | done | Grok | author | Claude | none | github-mcp docs/collaboration/cc3/t1-sandbox-study.md | none | none | 8a6dc6e | github-mcp#55 merged; #25 T1 | Delivered and merged; the three non-blocking remarks of Claude's review are left to the author; location moved from the plan |
@@ -110,3 +112,10 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | github-mcp PR #75 (C6) | merged; final head 1fc4ac7a952e4a3a521a5488e5a1557b16207fa6, integration merge 77ffeae6ffb4b805303a3480b55871e03d748173 |
 | github-mcp#79 Codex audit | audit of cc3-integration@77ffeae; A01-A04 P1, A05-A08 contract/guard findings, A09 traversal blocker, A10 stale coordination snapshot, A11 issue-body continuation gap |
 | project-mcp-collab#31 | post-audit correction plan before C7; groups A01-A11 into F1-F6 and keeps promotion/merge authority with Kevin |
+
+| github-mcp PR #81 (F2) | merged into cc3-integration as af940248; final head 3baa575, Grok reviewer AGREE + GPT-5.6 Sol tester PASS, CI 4/4 |
+| github-mcp PR #83 (F4) | merged into cc3-integration as 8b1cb488; final head 0ef8f1a, renewed GPT-5.6 Sol AGREE + Grok PASS, CI 4/4 |
+| github-mcp PR #82 (F1) | merged into cc3-integration as bc22543f; final head 9c004ba, Claude AGREE + Grok PASS renewed on the then-live base, CI 4/4 |
+| github-mcp PR #84 (F3) | merged into cc3-integration as e15bb4d9; final head 63c9d13, GPT-5.6 Sol AGREE 6070119116 + Claude formal PASS 6070204581, CI 4/4 |
+| github-mcp PR #80 (F5) | open at head 9c90f742 on old base 77ffeae; A07 replay/policy probes passed in Claude pre-test 6069270480, but A09 and in-PR D1/MCP regression coverage remain open; final resync to live integration e15bb4d required before Sol review/Claude formal test |
+| project-mcp-collab PR #32 (F6-A10) | Claude CHANGES_REQUESTED 6068775540: snapshot F1-F5 facts/roles stale; corrected on the next head. Claude is reviewer; distinct tester still unassigned by owner |
