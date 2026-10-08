@@ -112,7 +112,6 @@ A task is not done because a role was accepted. done = merged with recorded revi
 | github-mcp PR #75 (C6) | merged; final head 1fc4ac7a952e4a3a521a5488e5a1557b16207fa6, integration merge 77ffeae6ffb4b805303a3480b55871e03d748173 |
 | github-mcp#79 Codex audit | audit of cc3-integration@77ffeae; A01-A04 P1, A05-A08 contract/guard findings, A09 traversal blocker, A10 stale coordination snapshot, A11 issue-body continuation gap |
 | project-mcp-collab#31 | post-audit correction plan before C7; groups A01-A11 into F1-F6 and keeps promotion/merge authority with Kevin |
-
 | github-mcp PR #81 (F2) | merged into cc3-integration as af940248; final head 3baa575, Grok reviewer AGREE + GPT-5.6 Sol tester PASS, CI 4/4 |
 | github-mcp PR #83 (F4) | merged into cc3-integration as 8b1cb488; final head 0ef8f1a, renewed GPT-5.6 Sol AGREE + Grok PASS, CI 4/4 |
 | github-mcp PR #82 (F1) | merged into cc3-integration as bc22543f; final head 9c004ba, Claude AGREE + Grok PASS renewed on the then-live base, CI 4/4 |
