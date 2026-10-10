@@ -9,7 +9,8 @@ Domain → primary files. Update on moves.
 | Mandatory agent protocol | AGENTS.md |
 | Phase/role rules | WORKFLOW.md |
 | Approved shared state | WORKFLOW_STATE.md (CC-2, CC-STATE-1 contract: github-mcp docs/collaboration/contract.md) |
-| CC-3 approved snapshots | docs/coordination/cc3/state.md (snapshot, not a real-time board; post-audit rev 7 proposed in F6-A10) |
+| CC-3 approved snapshots | docs/coordination/cc3/state.md (snapshot, not real-time; approved rev 9; do not infer live state) |
+| CC-3 manual on-activation relay | docs/coordination/cc3/manual-resume.md (instructions-only, phase/owner STOP preserved) |
 | CC-1 final snapshot (rev 4, read-only history) | docs/coordination/history/cc1-state-rev4.md |
 | State field contract (CC-1) | docs/coordination/state-contract.md |
 | Frozen plan baseline | docs/coordination/plan-v1.2.md |
