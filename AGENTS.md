@@ -2,7 +2,7 @@
 
 ## Read order (every task)
 1. This file
-2. WORKFLOW_STATE.md (approved on main)
+2. WORKFLOW_STATE.md (CC-2 only); on CC-3 tasks also read docs/coordination/cc3/state.md and docs/coordination/cc3/manual-resume.md
 3. docs/coordination/state-contract.md (if mutating state or templates)
 4. WORKFLOW.md (phase/role rules)
 5. docs/code-map.md
@@ -35,3 +35,8 @@ A summary never proves complete review. Record ID + updatedAt for decision sourc
 - Temporary debate → issues/PRs
 - Durable lessons → AGENT_MEMORY.md (append-only, owned by C)
 - Tool improvements → rfkevin/github-mcp TOOL_IMPROVEMENTS.md (not a local competing backlog)
+
+## CC-3 manual relay (on activation only)
+- Within an already owner-authorized phase and assigned role, resume live task/PR state and finish all safe role actions without a new 'Go' per microstep; publish a concise handoff with exact SHA evidence.
+- Source of live CC-3 task status: coordination issue #31 and the linked github-mcp PRs; CC-3 state.md is an approved snapshot, not a live board.
+- Full operating steps and STOP boundaries: docs/coordination/cc3/manual-resume.md. This does not wake other clients, auto-approve reviews/tests or authorize merges.
