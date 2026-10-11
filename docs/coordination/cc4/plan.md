@@ -197,9 +197,11 @@ All assignments below are **proposed**, not accepted authority until Kevin valid
 | --- | --- | --- | --- | --- |
 | A0 hardening | strict op_id grammar; typed STALE exposes currentRevision; cycle discovery; principal/endpoint/session contract; one-output-per-required-phase guard | Vibe GLM | GPT-6 | Grok |
 | A1 invocation core | invocation/outbox schema; UNIQUE wake_key; leases/retry/reconciliation; simulated executor; provenance + usage ledger | GPT-6 | Claude | Vibe GLM |
-| A2 owner/budget gate | executable exact-hash owner requests; budget reserve/settle; kill switch; no-copy/paste owner UI | Claude | Grok | Vibe GLM |
-| A3 executor adapters | capability matrix; at least one real provider-API adapter and one verified Actions/CLI adapter; endpoint attestation; least-privilege tools | Grok | Vibe GLM | Claude |
+| A2 owner/budget gate | executable exact-hash owner requests; owner UI with no copy/paste; protected-action preconditions; budget envelope UI/contract; kill switch. Invocation reserve/settle hooks are integrated with A1 before A3 exit | Claude | Grok | Vibe GLM |
+| A3 executor adapters | capability matrix; at least one verified **Free API** adapter and one verified Actions/CLI adapter; endpoint attestation; least-privilege tools. No paid provider is required for this lot | Grok | Vibe GLM | Claude |
 | A4 semi-auto trial | one real mission: dispatch -> author result -> independent review/test -> prepared owner final action; chat fallback measured; no automatic main/prod | Vibe GLM | GPT-6 | Grok |
+
+**Dependency order:** A0 -> **A1 and A2 in parallel** -> A3 -> A4. The exact-hash owner-request executor does not depend on the invocation registry and is intentionally delivered as soon as A0 hardening establishes the authority/action contracts. A1 and A2 integrate their budget/invocation hooks before A3.
 
 **Stage A exit:** a task can be executed through verified headless endpoints with bounded context, D12 provenance, hard budget, retries and prepared owner requests. Kevin is not relaying normal work between automated participants. No general next-action policy or merge-train automation is required yet.
 
