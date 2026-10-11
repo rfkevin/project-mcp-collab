@@ -278,6 +278,13 @@ Prepared owner request after P4 should contain: selected option, exact Stage A s
 
 No P2 objection is blocking after these dispositions; P4 must verify the implementation plan actually preserves them.
 
+### P4 neutrality objections — disposition
+
+| Objection | Resolution |
+| --- | --- |
+| N1: K-CC4-1 omitted Free/cost/prerequisites | resolved: §10 now gives initial cost, Free compliance and probe prerequisites for A/B/C; all three pilot options start with paid envelope 0, and a separate owner request is mandatory before any later paid use |
+| N2: prepared owner execution was sequenced after invocation core without justification | resolved: §9 now makes A1 invocation core and A2 owner/budget gate parallel immediately after A0; exact-hash owner execution is explicitly independent of invocation storage and reaches Kevin's no-copy/paste requirement early |
+
 ## 12. Fact corrections applied
 
 - GitHub Actions: public standard runners are free; 2,000 minutes/month is the GitHub Free private-repository quota.
