@@ -8,6 +8,10 @@ Source : journal du store (`manual_op.log` + `owner.decision`). Complétude vér
 | 47 | rev 4 | Installer les définitions de phase P1/P2 (K-phases) | human_decision | Kevin | installed | owner.decision seq 46 | oui |
 | 71 | rev 20 | Aller-retour restore par imports owner (2 cycles scratch isolés `c7-restore-a:67` / `c7-restore-b:70`, sans cible GitHub ni issue refs, impact production aucun) | human_decision | Kevin | done | source_events `c7-restore-a:67`, `c7-restore-b:70` | oui |
 
+## Opération manuelle ouverte (issue de la revue PR #38)
+
+- **Import owner de l'état initial du cycle `cc3-c7-trial` sur `/owner`**, puis export `cc-state-1` validé par le parser L1 — nécessaire pour clore le scénario obligatoire « Snapshot final exportable » du GO (owner.request seq 41, owner.decision seq 42). État constaté à la revue : `collab_export` → `NO_STATE_SNAPSHOT`. Kevin uniquement ; les agents ne peuvent pas l'exécuter.
+
 ## Notes
 - Le GO C7 (owner.decision seq 42) et l'installation des phases (seq 46, definitions_sha256 `a37652de1165cb32167a5e9eeb2625e5bdb473901cc661777a5cb29bf2afbe4f`) sont des actes du canal `/owner` (I7), jamais imputables aux agents.
 - Latence S5 sur cc3-test : opération manuelle héritée de C2 (harness `docs/collaboration/cc3/cc3-latency-harness.md`), non exécutée pendant ce trial — aucune mesure dans le journal du cycle.
