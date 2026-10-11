@@ -125,6 +125,12 @@ Sources:
 - https://developers.cloudflare.com/changelog/post/2026-02-04-queues-free-plan/
 - https://developers.cloudflare.com/workflows/reference/pricing/
 - https://docs.github.com/en/billing/concepts/product-billing/github-actions
+- https://docs.z.ai/guides/overview/pricing
+- https://developers.cloudflare.com/workers-ai/platform/pricing/
+
+For the **Stage A Free API pilot**, primary documentation checked on 2026-10-12 provides zero-paid-inference candidates: Z.AI lists GLM-4.7-Flash, GLM-4.5-Flash and GLM-4.6V-Flash as Free; Workers AI includes 10,000 Neurons/day at no charge, while explicitly requiring a paid billing method for some models. The chosen pilot must therefore use a model that is actually Free at probe time and verify the required API/tool capabilities. A free/light model validates invocation, provenance, retry and accounting; it does **not** prove that the model is qualified as a production author/reviewer.
+
+An API endpoint used for this pilot is its own endpoint/principal binding for D12. A GLM API call, for example, is not automatically the same participant as the chat participant labelled Vibe GLM.
 
 Provider/model prices are **not frozen in this plan**. Seq 104 showed that the OpenAI names/prices in seq 95 were incorrect. Every paid backend gets an activation-time price-sheet snapshot from the provider's primary documentation and a live cost probe.
 
