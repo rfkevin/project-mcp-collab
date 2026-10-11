@@ -1,6 +1,6 @@
 # C7 — Résultats consolidés de l'essai réel (cycle cc3-c7-trial)
 
-Source unique : preuves `evidence.add` du journal du store (coordinateur gpt6, tester grok, owner vibe). Aucune donnée GitHub n'a servi à établir ces verdicts. Consolidation en P2, révision 28.
+Source unique : preuves `evidence.add` du journal du store (coordinateur gpt6, tester grok, owner vibe). Aucune donnée GitHub n'a servi à établir ces verdicts. Consolidation en P2, révision 28 ; mise à jour à la révision 31 après clôture du scénario « Snapshot final exportable ».
 
 ## Verdicts par scénario
 
@@ -12,7 +12,7 @@ Source unique : preuves `evidence.add` du journal du store (coordinateur gpt6, t
 | Concurrence CAS + récupération STALE | 63–65 | **PASS_WITH_LIMIT** |
 | Rejeu idempotent après applied | 66 | **PASS** (duplicate, événement original rendu, aucune nouvelle écriture, révision inchangée) |
 | Restore export/import (aller-retour) | 71, 72 | **PASS** (sha identique `0acea76d…`, révision d'état 3→3, tâche mutée retrouvée, cycles scratch isolés) |
-| Snapshot final exportable (cycle cc3-c7-trial) — obligatoire selon le GO | 41, 42 (GO) | **NOT_TESTED** (`collab_export` → `NO_STATE_SNAPSHOT` : aucun état CC-STATE-1 importé pour ce cycle ; le restore n'a été prouvé que sur les cycles scratch c7-restore-a/b, preuve seq 72 ; PASS attendu seulement après import owner de l'état initial sur /owner puis export validé par le parser L1 — opération manuelle Kevin ouverte, cf. manual-ops.md) |
+| Snapshot final exportable (cycle cc3-c7-trial) — obligatoire selon le GO | 79, 80, 81 | **PASS** (import owner de l'état initial seq 79 — Kevin, canal /owner, state_revision 2, sha `60b4d75e…`, based_on_sha `7f0d572…` ; manual_op seq 80 ; evidence seq 81 : premier export succès, parser validé, état inchangé ; export final cc-state-1 révision 3 sur base 2, sha `ad6080171f49b009b8c6143f38e1d2987cad1b314cf4dd727f8c386083f72a15`, hash stable au second export) |
 | Garde X5 (mémoire partagée en P1) | 58 | **PASS** (refus `MEMORY_P1_SHARED_MUTATION` sur scope common, révision inchangée — preuve Grok seq 58 ; le reviewer Claude a observé le même refus en P1 lors de sa propre sonde : un refus n'écrit rien, aucun événement ajouté au journal) |
 | Mémoire privée X2 (propose + auto-revue bornée) | 56, 57, 58 | **PASS** (candidate→active, masquée aux tiers) |
 | Workflow d'objection sur next_action obsolète | 74–76 | **PASS** (ouverte par l'owner, confirmée par le reviewer) |
@@ -31,4 +31,4 @@ Source unique : preuves `evidence.add` du journal du store (coordinateur gpt6, t
 
 Les scénarios C7 réellement exécutés et passés depuis le store seul tiennent : scellement commit-reveal (engagement du reviewer vérifié par recalcul indépendant : `sha256(nonce + ':' + content)` = `content_hash` scellé), avancée policy bornée à la ronde, CAS fail-closed avec récupération STALE, idempotence, restore export/import bit-exact (cycles scratch c7-restore-a/b), gardes mémoire X5/X2, workflow d'objection, absence de PR d'état GitHub pendant l'essai. Les limites relevées sont des défaillances d'utilisabilité côté clients (découverte générique, rendu de l'erreur STALE structurée, fraîcheur du next_action), pas des défauts du store.
 
-**Scénario obligatoire encore ouvert :** « Snapshot final exportable » (GO, owner.request seq 41 / owner.decision seq 42) est **NOT_TESTED** sur le cycle du trial — `collab_export` répond `NO_STATE_SNAPSHOT` (aucun état initial importé sur /owner pour ce cycle). Il passera en PASS seulement après l'import owner de l'état initial suivi d'un export validé par le parser L1 ; cette étape est une opération manuelle Kevin (import /owner), consignée dans `manual-ops.md`. Fusion de cette PR = Kevin uniquement ; `state.md` non modifié.
+**Scénario obligatoire « Snapshot final exportable » : PASS** (import owner seq 79 + manual_op seq 80 + evidence seq 81 ; export final cc-state-1 révision 3 sur base 2, sha `ad6080171f49b009b8c6143f38e1d2987cad1b314cf4dd727f8c386083f72a15`, parser validé, hash stable au second export). Tous les scénarios obligatoires du GO sont désormais passés ; le registre des opérations manuelles compte 4 entrées (`manual-ops.md`). Fusion de cette PR = Kevin uniquement ; `state.md` non modifié.

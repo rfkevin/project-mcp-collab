@@ -1,6 +1,6 @@
 # C7 — Journal de l'essai réel (cycle cc3-c7-trial)
 
-Source unique : journal du store Collaboration 3 (connecteur collaboration_3_22f6), cycle `cc3-c7-trial`, consolidé en P2 à la révision 28. Le numérotage `seq` est global au store : les séquences d'autres cycles (49–52 : cycle cc3 ; 67–70 : cycles scratch c7-restore-a/b) n'apparaissent pas dans ce cycle.
+Source unique : journal du store Collaboration 3 (connecteur collaboration_3_22f6), cycle `cc3-c7-trial`, consolidé en P2 à la révision 28, complété à la révision 31 après clôture du scénario « Snapshot final exportable ». Le numérotage `seq` est global au store : les séquences d'autres cycles (49–52 : cycle cc3 ; 67–70 : cycles scratch c7-restore-a/b) n'apparaissent pas dans ce cycle.
 
 Les étiquettes `expected_rev` indiquent la révision attendue au moment de chaque écriture (CAS) ; la révision stockée après l'écriture vaut `expected_rev + 1`. La révision d'état du cycle au moment de la consolidation vaut 28.
 
@@ -36,4 +36,10 @@ Les étiquettes `expected_rev` indiquent la révision attendue au moment de chaq
 - **seq 77 (expected_rev 26)** — `task.handoff` vibe (owner inchangé) : next_action mis à jour — K-phases installé, ronde scellée P1→P2 terminée, exécuter les scénarios C7 restants depuis le store.
 - **seq 78 (expected_rev 27)** — `evidence.add` gpt6 : absence de PR d'état + complétude manual-ops **PASS** (aucune PR project-mcp-collab postérieure à #37 pendant l'essai ; #36/#37 antérieures au GO C7).
 
-État à la consolidation : phase **P2**, révision **28**, statut open. Ce journal est écrit à partir des seuls événements du cycle `cc3-c7-trial`.
+## P2 — Snapshot final exportable (clôture)
+- **seq 79 (expected_rev 28)** — `owner.decision import_state` (Kevin, canal /owner, I7) : import de l'état initial CC-STATE-1 du cycle (state_revision 2, content_sha256 `60b4d75e8e116e85a2b1cb18775ef7c505b8b0806ac9c1b3caf833980a5a5c22`, based_on_sha `7f0d572…`, target null, issue_refs vides).
+- **seq 80 (expected_rev 29)** — `manual_op.log` : import de la base du snapshot final consigné (Kevin, automatisable plus tard, impact production aucun, source owner.decision seq 79).
+- **seq 81 (expected_rev 30)** — `evidence.add` gpt6 : exportabilité du snapshot final **PASS** (premier export : succès, parser validé, état inchangé, révision d'état 2 ; le second export après cette preuve est le snapshot final, la preuve y est donc matérialisée).
+- Export final vérifié : `collab_export` cc-state-1 → révision d'état **3** sur base **2**, sha `ad6080171f49b009b8c6143f38e1d2987cad1b314cf4dd727f8c386083f72a15`, hash stable au second export (re-vérifié à la mise à jour).
+
+État après clôture du scénario : phase **P2**, révision **31**, statut open. Ce journal est écrit à partir des seuls événements du cycle `cc3-c7-trial`.
