@@ -230,15 +230,17 @@ The CC-3 export inheritance defect must be fixed earlier if an automated bootstr
 
 This is the only unresolved architectural preference that materially changes Stage A ordering.
 
-| Option | Meaning | Participant position |
-| --- | --- | --- |
-| A — API-first | first real adapter is a provider API; Actions/CLI follows | GPT-6: prefer; Grok: prefer |
-| B — subscription runner-first | first real adapter is Actions/CLI using an already-paid subscription where permitted | Claude: prefer |
-| C — dual capability pilot | keep common broker neutral and require one API adapter + one Actions/CLI adapter before selecting a default | Vibe: closest to proposal; GPT-6/Grok accept hybrid executors; Claude's runner remains represented |
+| Option | Meaning | Initial cost / Free compliance / prerequisite | Participant position |
+| --- | --- | --- | --- |
+| A — API-first | first real adapter is a provider API; Actions/CLI follows | **Free-compatible for the pilot:** use a currently verified free API/model. Prerequisite: live capability/tool/provenance probe. Initial paid envelope: **0** | GPT-6: prefer; Grok: prefer |
+| B — subscription runner-first | first real adapter is Actions/CLI using an already-paid subscription where permitted | **Free/no new API billing for the pilot** if the reported Claude Pro path remains permitted and available. Prerequisite: protected runner/OIDC + live usage probe. Initial paid envelope: **0** | Claude: prefer |
+| C — dual capability pilot | keep common broker neutral and require one API adapter + one Actions/CLI adapter before selecting a default | **Free-compatible for the pilot:** one verified free API endpoint + one verified subscription-backed runner, both within included quotas. Prerequisite: both probes. Initial paid envelope: **0** | Vibe: closest to proposal; GPT-6/Grok accept hybrid executors; Claude's runner remains represented |
 
 **Assembler recommendation: C.** It adds one bounded adapter probe but prevents the architecture from being locked to a single provider/channel and directly answers the largest P2 uncertainty. The later default is chosen by measured cost, capability, provenance and reliability, not by assumption.
 
-Prepared owner request after P4 should contain: selected option, exact Stage A scope/roles, zero or bounded paid envelope, risks and rollback. Approval of this plan does **not** authorize production.
+Kevin's reported “about EUR 50” is a later maximum target, **not a pilot spend**. If a required capability cannot be proven on the Free/subscription-included paths, automation stops and prepares a separate paid-budget owner request before any charge.
+
+Prepared owner request after P4 should contain: selected option, exact Stage A scope/roles, initial paid envelope **0** for the pilot unless Kevin explicitly chooses otherwise, risks and rollback. Approval of this plan does **not** authorize production.
 
 ### Resolved in synthesis — no separate Kevin choice needed
 
